@@ -53,9 +53,7 @@ export default function Navbar() {
           <div className="flex sm:hidden">
             <Sheet>
               <SheetTrigger>
-                <Button variant="ghost" size="icon" aria-label="Toggle sidebar">
-                  <Menu />
-                </Button>
+                <Menu />
               </SheetTrigger>
               <SheetContent side="left" className="border-none">
                 <SheetHeader>
