@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "@/styles/globals.css";
+import "./globals.css";
 
 const fontSans = Inter({
-  variable: "--font-sans",
   subsets: ["latin"],
+  variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
   title: "SGAR 2025",
-  description: "Website for Student Government Annual Recruitment Week 2025.",
+  description: "SGAR 2025 is a weeklong university-wide event enticing students to join various student government units.",
 };
 
 export default function RootLayout({
@@ -19,9 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`bg-background ${fontSans.className} antialiased`}>
-        {children}
-      </body>
+      <body className={`min-h-screen bg-center bg-repeat bg-[url('/assets/bg.webp')] ${fontSans.className} antialiased`}>{children}</body>
     </html>
   );
 }
+ 
+ 
+ 
+ 
+  
