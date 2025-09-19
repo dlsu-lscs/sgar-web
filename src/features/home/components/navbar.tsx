@@ -59,11 +59,11 @@ export default function Navbar() {
               </SheetTrigger>
               <SheetContent side="left" className="border-none">
                 <SheetHeader>
-                  <SheetTitle className="text-left text-2xl font-bold mx-3">
+                  <SheetTitle className="text-left text-2xl font-extrabold mx-4">
                     Menu
                   </SheetTitle>
                 </SheetHeader>
-                <li className="flex-col space-y-6 mx-5">
+                <li className="flex-col space-y-8 mx-8 list-none">
                   <ul>
                     <Link href="/" className="text-foreground">
                       Home
