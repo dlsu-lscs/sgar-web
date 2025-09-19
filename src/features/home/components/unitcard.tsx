@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-interface UnitCardProps {
+interface Props {
   pub_url: string;
   title: string;
   logo_url: string;
@@ -8,8 +8,6 @@ interface UnitCardProps {
 
 export default function UnitCard() {
   return (
-    <>
-      <p>test</p>
-    </>
+    <div className="bg-[var(--card-foreground)] rounded-xs w-10 h-7">test</div>
   );
 }
