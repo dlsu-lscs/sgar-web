@@ -14,17 +14,27 @@ interface Props {
 
 export default function Dept({ name }: Props) {
   return (
-    <div className="col-start-1 row-start-1 absolute inset-0 sm:top-165 top-115 w-full z-10">
-      <h2 className="text-xl font-bold text-white mb-4 px-8 sm:px-16">
+    <div className=" relative w-full z-10">
+      <h2 className="text-xl flex justify-center items-center sm:justify-start font-bold text-white mb-6 px-8 sm:px-16">
         {name}
       </h2>
-      <div className="flex flex-row px-5">
-        <UnitCard
-          pub_url={lscs.pub_url}
-          logo_url={lscs.logo_url}
-          title={lscs.title}
-        />
-      </div>
+      <Carousel opts={{ align: "start", loop: true }} className="">
+        <CarouselContent className="absolute inset-0 -ml-0">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <CarouselItem key={i} className="sm:basis-3/19 flex-shrink-0">
+              <UnitCard
+                pub_url={lscs.pub_url}
+                logo_url={lscs.logo_url}
+                title={lscs.title}
+              />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <div className="flex items-center justify-between p-5 gap-2 mt-45">
+          <CarouselPrevious className="sm:static" />
+          <CarouselNext className="sm:static" />
+        </div>
+      </Carousel>
     </div>
   );
 }

@@ -14,7 +14,9 @@ export default function Home() {
           bg-gradient-to-t from-black via-black/40 to-transparent z-0 "
           />
         </div>
-        <Dept name={"MAIN COLLEGE UNITS"} />
+        <div className="absolute inset-0 sm:top-165 top-115 w-full">
+          <Dept name={"MAIN COLLEGE UNITS"} />
+        </div>
       </main>
     </>
   );

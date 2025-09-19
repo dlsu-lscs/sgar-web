@@ -12,7 +12,7 @@ export default function UnitCard({ pub_url, title, logo_url }: Props) {
       className="relative w-72 h-40 rounded-md shadow-md rounded-md bg-cover bg-center"
       style={{ backgroundImage: `url(${pub_url})` }}
     >
-      <div className={`absolute inset-0 rounded-md`} />
+      <div className={`absolute inset-0 rounded-md border-2 opacity-50`} />
 
       {/* increase opacity when needed */}
       <div className="absolute inset-0 bg-black opacity-70 rounded-md" />
