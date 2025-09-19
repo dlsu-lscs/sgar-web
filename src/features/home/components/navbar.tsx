@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { Menu } from "lucide-react";
 import Link from "next/link";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -13,8 +13,8 @@ import {
 export default function Navbar() {
   return (
     <header>
-      <nav className="relative bg-black p-4">
-        <div className="container mx-auto flex justify-between items-center">
+      <nav className="relative bg-black py-2 sm:px-8 px-5">
+        <div className="container flex mx-auto justify-between items-center">
           <Image
             src="/assets/sgar_logo.webp"
             alt="SGAR logo"
@@ -33,9 +33,66 @@ export default function Navbar() {
                 MAP
               </Button>
             </ul>
+            <ul>
+              <Button variant="link" className="text-foreground">
+                FAQs
+              </Button>
+            </ul>
+            <ul>
+              <Button variant="link" className="text-foreground">
+                SGAR
+              </Button>
+            </ul>
+            <ul>
+              <Button variant="link" className="text-foreground">
+                LSCS
+              </Button>
+            </ul>
           </li>
 
-          <div className="sm:hidden"></div>
+          <div className="flex sm:hidden">
+            <Sheet>
+              <SheetTrigger>
+                <Button variant="ghost" size="icon" aria-label="Toggle sidebar">
+                  <Menu />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="border-none">
+                <SheetHeader>
+                  <SheetTitle className="text-left text-2xl font-bold mx-3">
+                    Menu
+                  </SheetTitle>
+                </SheetHeader>
+                <li className="flex-col space-y-6 mx-5">
+                  <ul>
+                    <Link href="/" className="text-foreground">
+                      Home
+                    </Link>
+                  </ul>
+                  <ul>
+                    <Link href="/" className="text-foreground">
+                      Map
+                    </Link>
+                  </ul>
+                  <ul>
+                    <Link href="/" className="text-foreground">
+                      FAQs
+                    </Link>{" "}
+                  </ul>
+                  <ul>
+                    <Link href="/" className="text-foreground">
+                      SGAR
+                    </Link>
+                  </ul>
+                  <ul>
+                    <Link href="/" className="text-foreground">
+                      LSCS
+                    </Link>{" "}
+                  </ul>
+                </li>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </nav>
     </header>
