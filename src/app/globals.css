@@ -41,11 +41,13 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-html {
-  background: var(--background);
+html,
+body {
+  min-height: 100vh;
 }
 
 body {
+  color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
 }
 

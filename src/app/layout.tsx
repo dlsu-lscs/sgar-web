@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`min-h-screen bg-center bg-repeat bg-[url('/assets/bg.webp')] ${fontSans.className} antialiased relative`}
+        className={`min-h-screen bg-center bg-cover bg-no-repeat bg-[url('/assets/bg.webp')] ${fontSans.className} antialiased relative`}
       >
         {children}
       </body>
