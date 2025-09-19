@@ -42,8 +42,8 @@ export default function DeptTop({ name }: Props) {
           ))}
         </CarouselContent>
         <div className="flex items-center justify-between p-5 mt-5">
-          <CarouselPrevious className="sm:static" />
-          <CarouselNext className="sm:static" />
+          <CarouselPrevious className="sm:static sm:flex hidden" />
+          <CarouselNext className="sm:static sm:flex hidden" />
         </div>
       </Carousel>
     </div>
