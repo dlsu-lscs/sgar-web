@@ -12,8 +12,8 @@ import {
 
 export default function Navbar() {
   return (
-    <header>
-      <nav className="relative bg-black py-2 sm:px-8 px-5">
+    <header className="sticky top-0 z-50">
+      <nav className=" relative bg-black sm:py-2 py-1 sm:px-8 px-5">
         <div className="container flex mx-auto justify-between items-center">
           <Image
             src="/assets/sgar_logo.webp"

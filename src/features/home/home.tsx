@@ -1,5 +1,5 @@
-import Navbar from "./components/navbar";
 import Image from "next/image";
+import Navbar from "./components/navbar";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
             height={250}
             className="object-contain"
           />
-          <p className="text-left text-xs font-light">
+          <p className="hidden sm:flex text-left text-xs font-light">
             {" "}
             DESCRIPTION: Neque porro quisquam est qui dolorem ipsum quia dolor
             sit amet, consectetur, adipisci velit...{" "}
