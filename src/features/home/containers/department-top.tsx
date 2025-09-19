@@ -12,21 +12,32 @@ interface Props {
   name: string;
 }
 
-export default function Dept({ name }: Props) {
+export default function DeptTop({ name }: Props) {
   return (
     <div className=" relative w-auto z-10 h-[90%]">
       <h2 className="text-xl flex justify-center items-center sm:justify-start font-bold text-white mb-6 px-8 sm:px-16 z-20">
         {name}
       </h2>
-      <Carousel opts={{ align: "start", loop: true }} className="z-20">
-        <CarouselContent className="-ml-10">
+      <Carousel
+        opts={{
+          loop: true,
+          align: "center",
+          breakpoints: {
+            "(min-width: 640px)": { align: "start" },
+          },
+        }}
+        className="z-20"
+      >
+        <CarouselContent className="-ml-0">
           {Array.from({ length: 8 }).map((_, i) => (
-            <CarouselItem key={i} className="sm:basis-1/6 pl-10">
-              <UnitCard
-                pub_url={lscs.pub_url}
-                logo_url={lscs.logo_url}
-                title={lscs.title}
-              />
+            <CarouselItem key={i} className="">
+              <div className="w-full">
+                <UnitCard
+                  pub_url={lscs.pub_url}
+                  logo_url={lscs.logo_url}
+                  title={lscs.title}
+                />
+              </div>
             </CarouselItem>
           ))}
         </CarouselContent>
