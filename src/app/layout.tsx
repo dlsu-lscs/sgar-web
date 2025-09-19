@@ -9,7 +9,8 @@ const fontSans = Inter({
 
 export const metadata: Metadata = {
   title: "SGAR 2025",
-  description: "SGAR 2025 is a weeklong university-wide event enticing students to join various student government units.",
+  description:
+    "SGAR 2025 is a weeklong university-wide event enticing students to join various student government units.",
 };
 
 export default function RootLayout({
@@ -19,7 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`min-h-screen bg-center bg-repeat bg-[url('/assets/bg.webp')] ${fontSans.className} antialiased`}>{children}</body>
+      <body
+        className={`min-h-screen bg-center bg-contain bg-repeat bg-[url('/assets/bg.webp')] ${fontSans.className} antialiased relative`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

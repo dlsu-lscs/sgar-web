@@ -1,8 +1,9 @@
+import Home from "@/features/home/home";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
-      <div className=" relative">test</div>
+      <Home />
     </>
   );
 }
