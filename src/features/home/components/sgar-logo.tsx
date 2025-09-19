@@ -17,7 +17,7 @@ export default function SgarLogo2() {
         DESCRIPTION: Neque porro quisquam est qui dolorem ipsum quia dolor sit
         amet, consectetur, adipisci velit...{" "}
       </p>
-      <Button className="text-background bg-foreground hover:bg-[var(--secondary-foreground)]">
+      <Button className="text-background font-bold bg-foreground hover:bg-[var(--secondary-foreground)]">
         <Play />
         See more
       </Button>
