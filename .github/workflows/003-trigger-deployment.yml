@@ -2,16 +2,15 @@
 # deploy on coolify for dev/staging and digital ocean on prod
 name: Trigger Deployment
 on:
-  # TODO: uncomment if running on coolify/DigitalOcean
-  # workflow_run:
-  #   workflows:
-  #     - "Build and Push Image"
-  #   branches:
-  #     - main
-  #     - staging
-  #     - dev
-  #   types:
-  #     - completed
+  workflow_run:
+    workflows:
+      - "Build and Push Image"
+    branches:
+      - main
+      - staging
+      - dev
+    types:
+      - completed
   workflow_dispatch:
 
 jobs:
