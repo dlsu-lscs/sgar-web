@@ -57,6 +57,8 @@ body {
   --foreground: #ffffff;
   --card: oklch(1 0 0);
   --card-foreground: #424242;
+  --card-secondary-foreground: #1f1f1f;
+  --card-tertiary-foreground: #0c0c0c;
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
