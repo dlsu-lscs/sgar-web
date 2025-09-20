@@ -16,7 +16,10 @@ export default function Home() {
           />
         </div>
         <div className="absolute inset-0 sm:top-165 top-115 w-full">
-          <DeptTop name={"MAIN COLLEGE UNITS"} />
+          <div className="relative flex flex-col">
+            <DeptTop name={"MAIN COLLEGE UNITS"} />
+            <Dept name={"COMMISION AND OTHER UNITS"} />
+          </div>
         </div>
       </main>
     </>
