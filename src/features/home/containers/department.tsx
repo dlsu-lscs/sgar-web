@@ -1,4 +1,7 @@
+"use client";
+
 import UnitCard from "../components/unitcard";
+import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
   CarouselContent,
@@ -10,9 +13,10 @@ import lscs from "../data/placeholder";
 
 interface Props {
   name: string;
+  delay: number;
 }
 
-export default function Dept({ name }: Props) {
+export default function Dept({ name, delay }: Props) {
   return (
     <div className=" relative w-full z-10 bg-[var(--card-secondary-foreground)]  pt-5">
       {/* black divider */}
@@ -25,6 +29,7 @@ export default function Dept({ name }: Props) {
       <div className="relative">
         <div className="absolute inset-0 top-1/3 w-full h-40 bg-[var(--card-secondary-foreground)] z-0" />
 
+        {/* carousel for units */}
         <Carousel
           opts={{
             loop: true,
@@ -33,6 +38,13 @@ export default function Dept({ name }: Props) {
               "(min-width: 640px)": { align: "start" },
             },
           }}
+          plugins={[
+            Autoplay({
+              delay: delay,
+              stopOnInteraction: false,
+              stopOnMouseEnter: true,
+            }),
+          ]}
           className="z-20"
         >
           <CarouselContent className="-ml-0">

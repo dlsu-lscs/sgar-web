@@ -17,8 +17,9 @@ export default function Home() {
         </div>
         <div className="absolute inset-0 sm:top-165 top-115 w-full">
           <div className="relative flex flex-col">
-            <DeptTop name={"MAIN COLLEGE UNITS"} />
-            <Dept name={"COMMISION AND OTHER UNITS"} />
+            <DeptTop name={"MAIN COLLEGE UNITS"} delay={2000} />
+            <Dept name={"COMMISION AND OTHER UNITS"} delay={3000} />
+            <Dept name={"COMMISION AND OTHER UNITS"} delay={3000} />
           </div>
         </div>
       </main>

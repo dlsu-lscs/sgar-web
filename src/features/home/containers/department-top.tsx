@@ -1,4 +1,7 @@
+"use client";
+
 import UnitCard from "../components/unitcard";
+import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
   CarouselContent,
@@ -10,9 +13,10 @@ import lscs from "../data/placeholder";
 
 interface Props {
   name: string;
+  delay: number;
 }
 
-export default function DeptTop({ name }: Props) {
+export default function DeptTop({ name, delay }: Props) {
   return (
     <div className=" relative w-auto z-10 h-[90%]">
       <h2 className="text-xl flex justify-center items-center sm:justify-start font-bold text-white mb-6 px-8 sm:px-16 z-20">
@@ -28,6 +32,13 @@ export default function DeptTop({ name }: Props) {
               "(min-width: 640px)": { align: "start" },
             },
           }}
+          plugins={[
+            Autoplay({
+              delay: delay,
+              stopOnInteraction: false,
+              stopOnMouseEnter: true,
+            }),
+          ]}
           className="z-20"
         >
           <CarouselContent className="-ml-0">
