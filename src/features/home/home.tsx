@@ -19,7 +19,7 @@ export default function Home() {
           <div className="relative flex flex-col">
             <DeptTop name={"MAIN COLLEGE UNITS"} delay={3000} />
             <Dept name={"COMMISION AND OTHER UNITS"} delay={5000} />
-            <Dept name={"COMMISION AND OTHER UNITS"} delay={7000} />
+            <Dept name={"COLLEGE OF COMPUTER STUDIES"} delay={7000} />
           </div>
         </div>
       </main>

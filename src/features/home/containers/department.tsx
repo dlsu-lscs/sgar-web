@@ -18,16 +18,17 @@ interface Props {
 
 export default function Dept({ name, delay }: Props) {
   return (
-    <div className=" relative w-full z-10 bg-[var(--card-secondary-foreground)]  pt-5">
-      {/* black divider */}
-      <div className="w-full bg-[var(--card-tertiary-foreground)] h-5 mb-7"></div>
+    <div className=" relative w-full z-10 bg-black/60 pt-5">
+      {/* commented above bg-[var(--card-secondary-foreground)] */}
+      {/* black divider OPACITY SET TO 0*/}
+      <div className="w-full bg-[var(--card-tertiary-foreground)] h-5 mb-7 opacity-0"></div>
 
       {/* title of department */}
       <h2 className="text-xl flex justify-center items-center sm:justify-start font-bold text-white mb-6 px-8 sm:px-16 z-20">
         {name}
       </h2>
       <div className="relative">
-        <div className="absolute inset-0 top-1/3 w-full h-40 bg-[var(--card-secondary-foreground)] z-0" />
+        <div className="absolute inset-0 top-1/3 w-full h-40 bg-[var(--card-secondary-foreground)] z-0 opacity-0" />
 
         {/* carousel for units */}
         <Carousel
