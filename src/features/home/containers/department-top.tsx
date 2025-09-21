@@ -19,7 +19,7 @@ interface Props {
 export default function DeptTop({ name, delay }: Props) {
   return (
     <div className=" relative w-auto z-10 h-[90%]">
-      <div className="bg-gradient-to-t from-[var(--card-tertiary-foreground)] to-transparent sm:h-86 h-78 w-full absolute inset-0 -top-15 z-0" />
+      <div className="bg-gradient-to-t from-[var(--card-tertiary-foreground)] to-transparent sm:h-96 h-88 w-full absolute inset-0 -top-15 z-0" />
       <h2 className="relative text-xl flex justify-center items-center sm:justify-start font-bold text-white mb-6 px-8 sm:px-16 z-20">
         {name}
       </h2>
@@ -43,21 +43,19 @@ export default function DeptTop({ name, delay }: Props) {
           ]}
           className="z-20"
         >
-          <CarouselContent className="-ml-0">
+          <CarouselContent className="-ml-0 py-10">
             {Array.from({ length: 8 }).map((_, i) => (
-              <CarouselItem key={i} className="">
-                <div className="w-full">
-                  <UnitCard
-                    pub_url={lscs.pub_url}
-                    logo_url={lscs.logo_url}
-                    title={lscs.title}
-                    slug={lscs.slug}
-                  />
-                </div>
+              <CarouselItem key={i} className="overflow-visible">
+                <UnitCard
+                  pub_url={lscs.pub_url}
+                  logo_url={lscs.logo_url}
+                  title={lscs.title}
+                  slug={lscs.slug}
+                />
               </CarouselItem>
             ))}
-          </CarouselContent>
-          <div className="flex items-center justify-between px-5 pt-5 mt-5">
+          </CarouselContent>{" "}
+          <div className="flex items-center justify-between px-5">
             <CarouselPrevious className="sm:static sm:flex hidden" />
             <CarouselNext className="sm:static sm:flex hidden" />
           </div>

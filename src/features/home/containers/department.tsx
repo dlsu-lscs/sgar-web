@@ -46,11 +46,11 @@ export default function Dept({ name, delay }: Props) {
               stopOnMouseEnter: true,
             }),
           ]}
-          className="z-20 *:overflow-visible "
+          className="z-20"
         >
-          <CarouselContent className="-ml-0">
+          <CarouselContent className="-ml-0 py-10">
             {Array.from({ length: 8 }).map((_, i) => (
-              <CarouselItem key={i} className="">
+              <CarouselItem key={i} className="overflow-visible">
                 <UnitCard
                   pub_url={lscs.pub_url}
                   logo_url={lscs.logo_url}
@@ -60,7 +60,7 @@ export default function Dept({ name, delay }: Props) {
               </CarouselItem>
             ))}
           </CarouselContent>{" "}
-          <div className="flex items-center justify-between px-5 pt-5 mt-5">
+          <div className="flex items-center justify-between px-5">
             <CarouselPrevious className="sm:static sm:flex hidden" />
             <CarouselNext className="sm:static sm:flex hidden" />
           </div>
