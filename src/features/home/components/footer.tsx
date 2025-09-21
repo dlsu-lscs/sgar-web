@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <div className="w-full h-[60%] relative bg-black flex flex-col items-center justify-center gap-2 my-5">
+    <div className="w-full h-[80%] relative bg-black flex flex-col items-center justify-center gap-2">
       <Image
         src="/assets/sgar_logo2.webp"
         alt={"SGAR Logo 2"}

@@ -50,10 +50,7 @@ export default function Dept({ name, delay }: Props) {
         >
           <CarouselContent className="-ml-0">
             {Array.from({ length: 8 }).map((_, i) => (
-              <CarouselItem
-                key={i}
-                className="transition-transform hover:scale-105 duration-300 "
-              >
+              <CarouselItem key={i} className="">
                 <UnitCard
                   pub_url={lscs.pub_url}
                   logo_url={lscs.logo_url}

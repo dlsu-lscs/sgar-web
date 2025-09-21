@@ -12,7 +12,7 @@ export default function UnitCard({ pub_url, title, logo_url, slug }: Props) {
   return (
     <Link href={`/units/${slug}`} className="group">
       <div
-        className="relative w-72 h-40 rounded-md shadow-md bg-cover bg-center"
+        className="relative w-72 h-40 rounded-md shadow-md bg-cover bg-center transition-transform hover:scale-105 duration-300"
         style={{ backgroundImage: `url(${pub_url})` }}
       >
         <div className="absolute inset-0 rounded-md border-2 opacity-50" />
