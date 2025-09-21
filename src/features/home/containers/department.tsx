@@ -46,12 +46,12 @@ export default function Dept({ name, delay }: Props) {
               stopOnMouseEnter: true,
             }),
           ]}
-          className="z-20 overflow-visible "
+          className="z-20 *:overflow-visible "
         >
-          <CarouselContent className="-ml-0 ">
+          <CarouselContent className="-ml-0 overflow-visible">
             {Array.from({ length: 8 }).map((_, i) => (
               <CarouselItem key={i}>
-                <div className="w-full ">
+                <div className="w-full overflow-visible">
                   <UnitCard
                     pub_url={lscs.pub_url}
                     logo_url={lscs.logo_url}
