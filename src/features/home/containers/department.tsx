@@ -18,7 +18,7 @@ interface Props {
 
 export default function Dept({ name, delay }: Props) {
   return (
-    <div className=" relative w-full z-10 bg-black/60 pt-5">
+    <div className=" relative w-full z-10 bg-[var(--card-tertiary-foreground)] pt-5">
       {/* commented above bg-[var(--card-secondary-foreground)] */}
       {/* black divider OPACITY SET TO 0*/}
       <div className="w-full bg-[var(--card-tertiary-foreground)] h-5 mb-7 opacity-0"></div>
