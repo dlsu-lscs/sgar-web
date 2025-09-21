@@ -1,12 +1,17 @@
+interface Params {
+  slug: string;
+}
+
 interface UnitPageProps {
-  params: { slug: string };
+  params: Promise<Params>;
   searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-export default function UnitPage({ params }: UnitPageProps) {
+export default async function UnitPage({ params }: UnitPageProps) {
+  const { slug } = await params;
   return (
     <div className="w-full h-full bg-red-500 flex items-center justify-center text-white text-2xl">
-      Unit: {params.slug}
+      Unit: {slug}
     </div>
   );
 }
