@@ -17,8 +17,10 @@ export default function Navbar() {
           />
           <li className="hidden sm:flex space-x-2 items-center">
             <ul>
-              <Button variant="link" className="text-foreground">
-                <Link href="/">HOME</Link>
+              <Button variant="link" className="text-foreground ">
+                <Link href="/" className="">
+                  HOME
+                </Link>
               </Button>
             </ul>
             <ul>

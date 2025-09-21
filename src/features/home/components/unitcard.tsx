@@ -1,10 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card";
 
 interface Props {
   pub_url: string;
@@ -17,9 +12,7 @@ export default function UnitCard({ pub_url, title, logo_url, slug }: Props) {
   return (
     <Link href={`/units/${slug}`} className="group">
       <div
-        className="relative w-72 h-40 rounded-md shadow-md bg-cover bg-center 
-                   transition-transform duration-300 ease-out 
-                   group-hover:scale-105 group-hover:shadow-xl"
+        className="relative w-72 h-40 rounded-md shadow-md bg-cover bg-center"
         style={{ backgroundImage: `url(${pub_url})` }}
       >
         <div className="absolute inset-0 rounded-md border-2 opacity-50" />
