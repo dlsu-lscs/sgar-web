@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import Image from "next/image";
 import Sidebar from "./sidebar";
 
@@ -16,8 +17,10 @@ export default function Navbar() {
           />
           <li className="hidden sm:flex space-x-2 items-center">
             <ul>
-              <Button variant="link" className="text-foreground">
-                HOME
+              <Button variant="link" className="text-foreground ">
+                <Link href="/" className="">
+                  HOME
+                </Link>
               </Button>
             </ul>
             <ul>

@@ -51,6 +51,7 @@ export default function DeptTop({ name, delay }: Props) {
                     pub_url={lscs.pub_url}
                     logo_url={lscs.logo_url}
                     title={lscs.title}
+                    slug={lscs.slug}
                   />
                 </div>
               </CarouselItem>
