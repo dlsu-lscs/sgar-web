@@ -2,6 +2,7 @@ import Navbar from "./components/navbar";
 import SgarLogo2 from "./components/sgarlogo";
 import Dept from "./containers/department";
 import DeptTop from "./containers/department-top";
+import Footer from "./components/footer";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
             <Dept name={"COMMISION AND OTHER UNITS"} delay={5000} />
             <Dept name={"COLLEGE OF COMPUTER STUDIES"} delay={7000} />
           </div>
+          <Footer />
         </div>
       </main>
     </>
