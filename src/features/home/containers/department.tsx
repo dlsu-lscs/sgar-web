@@ -50,12 +50,13 @@ export default function Dept({ name, delay }: Props) {
         >
           <CarouselContent className="-ml-0">
             {Array.from({ length: 8 }).map((_, i) => (
-              <CarouselItem key={i} className="">
-                <div className="w-full">
+              <CarouselItem key={i}>
+                <div className="w-full overflow-visible">
                   <UnitCard
                     pub_url={lscs.pub_url}
                     logo_url={lscs.logo_url}
                     title={lscs.title}
+                    slug={lscs.slug}
                   />
                 </div>
               </CarouselItem>

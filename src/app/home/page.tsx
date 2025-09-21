@@ -1,13 +1,12 @@
-import Navbar from "./components/navbar";
-import SgarLogo2 from "./components/sgarlogo";
-import Dept from "./containers/department";
-import DeptTop from "./containers/department-top";
-import Footer from "./components/footer";
+import Navbar from "@/features/home/components/navbar";
+import SgarLogo2 from "@/features/home/components/sgarlogo";
+import Dept from "@/features/home/containers/department";
+import DeptTop from "@/features/home/containers/department-top";
+import Footer from "@/features/home/components/footer";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
       <main>
         <div className="flex flex-col min-h-screen sm:px-30 sm:py-20 sm:items-start items-center z-4">
           <SgarLogo2 />
@@ -18,7 +17,6 @@ export default function Home() {
             <Dept name={"COMMISION AND OTHER UNITS"} delay={5000} />
             <Dept name={"COLLEGE OF COMPUTER STUDIES"} delay={7000} />
           </div>
-          <Footer />
         </div>
       </main>
     </>
