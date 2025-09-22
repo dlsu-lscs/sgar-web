@@ -6,8 +6,8 @@ import lscs from "../../data/placeholder";
 
 export default function UnitDesc() {
   return (
-    <>
-      <div className="w-80 h-145 relative">
+    <div className="flex sm:flex-row relative flex-col gap-5 align-center items-center justify-center w-full">
+      <div className="sm:w-80 w-full sm:h-145 sm:mx-0 mx-5 relative">
         {/* application period box */}
         <div className="w-full h-20 border-2 border-white rounded-md items-center text-left p-5 mb-5">
           <p className="font-bold text-sm">APPLICATIONS OPEN UNTIL</p>
@@ -24,7 +24,7 @@ export default function UnitDesc() {
           <ImageBox src={lscs.pub_url} alt="Organizational Chart" />
         </div>
       </div>
-      <div className="w-150 h-145 relative">
+      <div className="sm:w-150 sm:h-145 mx-5 sm:mx-0 relative order-first sm:order-none">
         {/* unit description section */}
         <div className="w-full h-[50%] border-2 border-white rounded-md items-center text-left p-5 mb-5">
           <h3 className="font-bold mb-3">UNIT DESCRIPTION</h3>
@@ -35,7 +35,7 @@ export default function UnitDesc() {
           <ImageBox src={lscs.pub_url} alt="Organizational Chart" />
         </div>
       </div>
-      <div className="w-80 h-145 relative">
+      <div className="sm:w-80 sm:h-145 w-full mx-5 sm:mx-0 relative">
         <div className="w-full h-20 border-2 border-white rounded-md items-center text-left p-2 mb-5 flex flex-row">
           <Image
             src="/assets/sgar_logo2.webp"
@@ -48,7 +48,7 @@ export default function UnitDesc() {
             <p>{lscs.cluster}</p>
           </div>
         </div>
-        <div className="w-full h-67 border-2 border-white rounded-md items-center text-left mb-5 justify-center flex">
+        <div className="w-full sm:h-75 h-80 border-2 border-white rounded-md items-center text-left mb-5 justify-center flex flex-col gap-5">
           <Image
             src={lscs.logo_url}
             alt="Unit Logo Image"
@@ -56,8 +56,9 @@ export default function UnitDesc() {
             height={200}
             className="object-contain"
           />
+          UNIT LOGO
         </div>
-        <div className="w-full h-47 border-2 border-white rounded-md items-center text-left mb-5 justify-center flex flex-col gap-3">
+        <div className="w-full h-40 border-2 border-white rounded-md items-center text-left mb-5 justify-center flex flex-col gap-3">
           <p className="font-bold">APPLICATION FORM</p>
           <Button
             asChild
@@ -67,6 +68,6 @@ export default function UnitDesc() {
           </Button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
