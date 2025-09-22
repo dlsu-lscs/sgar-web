@@ -1,3 +1,7 @@
+import UnitTitle from "@/features/unit/components/unit_title";
+import Unit from "@/features/unit/components/unit";
+import Footer from "@/features/home/components/footer";
+
 interface Params {
   slug: string;
 }
@@ -15,13 +19,13 @@ export default async function UnitPage({
   const query = searchParams ? await searchParams : {};
 
   return (
-    <div className="w-full h-full bg-red-500 flex items-center justify-center text-white text-2xl">
-      Unit: {slug}
-      {Object.keys(query).length > 0 && (
-        <div className="mt-4 text-lg">
-          Query params: {JSON.stringify(query)}
-        </div>
-      )}
-    </div>
+    <>
+      <div className="relative flex flex-col">
+        <div className="h-20 w-full" />
+        <UnitTitle />
+        <Unit />
+        <Footer />
+      </div>
+    </>
   );
 }
