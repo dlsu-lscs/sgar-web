@@ -6,7 +6,6 @@ import lscs from "../../data/placeholder";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
@@ -35,7 +34,7 @@ export default function UnitDesc() {
             <VisuallyHidden.Root asChild>
               <DialogTitle />
             </VisuallyHidden.Root>
-            <DialogContent className="border-none bg-transparent">
+            <DialogContent className="border-none bg-transparent hide-close-button">
               <Image
                 src={lscs.pub_url}
                 width={500}
@@ -62,12 +61,12 @@ export default function UnitDesc() {
             <VisuallyHidden.Root asChild>
               <DialogTitle />
             </VisuallyHidden.Root>
-            <DialogContent className="border-none bg-transparent">
+            <DialogContent className="border-none bg-transparent hide-close-button">
               <Image
                 src={lscs.pub_url}
                 width={500}
                 height={500}
-                alt={"Organizational Chart"}
+                alt={"Main Pub"}
                 className="object-cover"
               />
             </DialogContent>

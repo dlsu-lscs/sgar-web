@@ -88,6 +88,10 @@ body {
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+.hide-close-button > button {
+  display: none;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
