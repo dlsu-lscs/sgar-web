@@ -1,8 +1,7 @@
 import Image from "next/image";
-import ImageBox from "./image-box";
 
 export default function ExecBoard() {
-  const n = 5;
+  const n = 3;
   const boxes = Array.from({ length: n });
 
   return (
@@ -14,7 +13,7 @@ export default function ExecBoard() {
           <div key={i} className="flex flex-col gap-2 text-center relative">
             <div className="w-50 h-60 flex items-center justify-center text-white rounded-md border-white border-2 relative">
               <Image
-                src="/assets/hannah.webp"
+                src="/assets/pfp.webp"
                 fill
                 alt="Executive Board Image"
                 className="object-cover"
@@ -23,7 +22,7 @@ export default function ExecBoard() {
 
             {/*placeholder*/}
             <p className="font-bold text-xs">BATCH REPRESENTATIVE</p>
-            <p className="text-xs">Hannah Lee</p>
+            <p className="text-xs">John Doe</p>
           </div>
         ))}
       </div>

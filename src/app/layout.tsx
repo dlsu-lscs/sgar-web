@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/features/home/components/navbar";
 
-const fontSans = Inter({
+const fontSans = Roboto({
   subsets: ["latin"],
   variable: "--font-sans",
 });
