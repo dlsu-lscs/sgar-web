@@ -34,7 +34,7 @@ export default function UnitDesc() {
             <VisuallyHidden.Root asChild>
               <DialogTitle />
             </VisuallyHidden.Root>
-            <DialogContent className="border-none bg-transparent hide-close-button">
+            <DialogContent className="!border-none !bg-transparent hide-close-button">
               <Image
                 src={lscs.pub_url}
                 width={500}
@@ -61,7 +61,7 @@ export default function UnitDesc() {
             <VisuallyHidden.Root asChild>
               <DialogTitle />
             </VisuallyHidden.Root>
-            <DialogContent className="border-none bg-transparent hide-close-button">
+            <DialogContent className="!border-none border-0 !bg-transparent hide-close-button">
               <Image
                 src={lscs.pub_url}
                 width={500}

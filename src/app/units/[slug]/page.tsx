@@ -24,8 +24,6 @@ export default async function UnitPage({
         <div className="h-20 w-full" />
         <UnitTitle />
         <Unit />
-        {/* remove later */}
-        <div className="w-full h-60 bg-[var(--card-tertiary-foreground)]"></div>
         <Footer />
       </div>
     </>
