@@ -3,6 +3,13 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import lscs from "../../data/placeholder";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { VisuallyHidden } from "radix-ui";
 
 export default function UnitDesc() {
   return (
@@ -16,12 +23,27 @@ export default function UnitDesc() {
 
         {/* organizational chart box */}
         <div className="w-full h-120 border-2 rounded-sm border-white items-center text-left  relative flex flex-col">
-          <div className="w-full h-10 border-1 border-white font-bold text-sm text-center justify-center flex items-center overflow-hidden z-10">
+          <div className="w-full h-10 border-1 border-white text-sm text-center justify-center flex items-center overflow-hidden z-10">
             ORGANIZATIONAL CHART
           </div>
-
           {/* organizational chart pub component */}
-          <ImageBox src={lscs.pub_url} alt="Organizational Chart" />
+          <Dialog modal>
+            <DialogTrigger asChild className="cursor-pointer w-full h-full">
+              <ImageBox src={lscs.pub_url} alt="Organizational Chart" />
+            </DialogTrigger>
+            <VisuallyHidden.Root asChild>
+              <DialogTitle />
+            </VisuallyHidden.Root>
+            <DialogContent className="!border-none !bg-transparent hide-close-button">
+              <Image
+                src={lscs.pub_url}
+                width={500}
+                height={500}
+                alt={"Organizational Chart"}
+                className="object-cover"
+              />
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
       <div className="sm:w-150 sm:h-145 px-5 sm:px-0 relative order-first sm:order-none">
@@ -32,7 +54,23 @@ export default function UnitDesc() {
         </div>
         <div className="w-full h-67 border-2 border-white rounded-md items-center text-left mb-5">
           {/* main pub component */}
-          <ImageBox src={lscs.pub_url} alt="Organizational Chart" />
+          <Dialog modal>
+            <DialogTrigger asChild className="cursor-pointer w-full h-full">
+              <ImageBox src={lscs.pub_url} alt="Organizational Chart" />
+            </DialogTrigger>
+            <VisuallyHidden.Root asChild>
+              <DialogTitle />
+            </VisuallyHidden.Root>
+            <DialogContent className="!border-none border-0 !bg-transparent hide-close-button">
+              <Image
+                src={lscs.pub_url}
+                width={500}
+                height={500}
+                alt={"Main Pub"}
+                className="object-cover"
+              />
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
       <div className="sm:w-80 sm:h-145 w-full px-5 sm:px-0 relative">

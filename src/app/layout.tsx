@@ -5,6 +5,7 @@ import Navbar from "@/features/home/components/navbar";
 
 const fontSans = Inter({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"], // adjust weights if needed
   variable: "--font-sans",
 });
 
@@ -22,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`min-h-screen bg-center bg-contain bg-repeat bg-[url('/assets/bg.webp')] ${fontSans.className} antialiased relative`}
+        className={`min-h-screen bg-center bg-contain bg-repeat bg-[url('/assets/bg.webp')] ${fontSans.className} ${fontSans.variable} antialiased relative`}
       >
         <Navbar />
         {children}
