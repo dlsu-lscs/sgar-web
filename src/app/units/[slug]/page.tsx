@@ -19,13 +19,11 @@ export default async function UnitPage({
   const query = searchParams ? await searchParams : {};
 
   return (
-    <>
-      <div className="relative flex flex-col">
-        <div className="h-20 w-full" />
-        <UnitTitle />
-        <Unit />
-        <Footer />
-      </div>
-    </>
+    <div className="relative flex flex-col">
+      <div className="h-20 w-full" />
+      <UnitTitle />
+      <Unit />
+      <Footer />
+    </div>
   );
 }
