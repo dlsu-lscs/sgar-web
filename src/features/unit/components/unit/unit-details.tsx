@@ -14,7 +14,7 @@ import { VisuallyHidden } from "radix-ui";
 export default function UnitDesc() {
   return (
     <div className="flex sm:flex-row relative flex-col gap-5 align-center items-center justify-center w-full">
-      <div className="sm:w-80 w-full sm:h-145 px-5 sm:px-0 relative">
+      <div className="sm:w-8027 w-full sm:h-145 px-5 sm:px-0 relative">
         {/* application period box */}
         <div className="w-full h-20 border-2 border-white rounded-md items-center text-left p-5 mb-5 hidden sm:block">
           <p className="font-bold text-sm">APPLICATIONS OPEN UNTIL</p>
