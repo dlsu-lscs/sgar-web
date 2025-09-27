@@ -1,7 +1,8 @@
 import { queryOptions } from "@tanstack/react-query";
+import { getUnitById } from "@/services/units.services";
 
-export const unitBySlugQueryOptions = (slug: string) =>
+export const unitByIdQueryOptions = (id: number) =>
   queryOptions({
-    queryKey: ["unit", slug],
-    queryFn: () => getUnitBySlug(slug),
+    queryKey: ["unit", id],
+    queryFn: () => getUnitById(id),
   });
