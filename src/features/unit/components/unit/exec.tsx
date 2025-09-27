@@ -6,7 +6,9 @@ export default function ExecBoard() {
 
   return (
     <div className="flex relative flex-col mt-2 items-center justify-center w-full">
-      <div className="w-full h-20 text-2xl text-center">EXECUTIVE BOARD</div>
+      <div className="w-full h-20 text-3xl text-center font-bold">
+        EXECUTIVE BOARD
+      </div>
 
       <div className="flex flex-wrap justify-center gap-10 max-w-[47.5rem]">
         {boxes.map((_, i) => (

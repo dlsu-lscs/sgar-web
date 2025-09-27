@@ -1,6 +1,7 @@
 import UnitDesc from "./unit/unit-details";
 import ExecBoard from "./unit/exec";
 import Committee from "./unit/committee";
+import Application from "./unit/application";
 
 export default function Unit() {
   return (
@@ -8,6 +9,7 @@ export default function Unit() {
       <UnitDesc />
       <ExecBoard />
       <Committee />
+      <Application />
     </div>
   );
 }

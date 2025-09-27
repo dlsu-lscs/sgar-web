@@ -12,7 +12,6 @@ export default function Committee() {
     "Events",
     "Membership",
     "IT",
-    "Logistics",
     "Documentation and Logistics",
   ];
 
@@ -22,7 +21,6 @@ export default function Committee() {
         <div className="w-full border-2 h-full border-white rounded-sm p-5 flex flex-col items-center text-center">
           <p className="font-bold mb-5">COMMITTEES</p>
 
-          {/* grid responsive update with equal heights */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full h-full items-stretch">
             {committees.map((c, i) => (
               <Dialog modal key={i}>
@@ -39,7 +37,9 @@ export default function Committee() {
                   <DialogHeader>
                     <DialogTitle className="text-xl">{c}</DialogTitle>
                   </DialogHeader>
-                  <h3 className="font-bold">Positions Open: 3</h3>
+                  <h3 className="font-bold whitespace-pre-line text-md">
+                    Positions Open
+                  </h3>
                   <div className="mt-3">
                     The Human Resources Committee of the Office of the Executive
                     Secretary focuses on managing internal processes related to
