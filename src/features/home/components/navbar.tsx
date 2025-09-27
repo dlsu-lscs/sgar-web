@@ -40,7 +40,7 @@ export default function Navbar() {
             </ul>
             <ul>
               <Button variant="link" className="text-foreground">
-                <Link href="/lscs" className="">
+                <Link href="/about/lscs" className="">
                   LSCS
                 </Link>
               </Button>
