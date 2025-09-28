@@ -13,10 +13,9 @@ export default function SgarLogo2() {
         className="object-contain"
       />
       <p className="hidden sm:flex text-left text-xs font-light pb-4">
-        {" "}
         Step into the colorful world of the USG Annual Recruitment Week!
         Discover student government units packed with adventures, creativity,
-        and opportunities waiting for YOU!{" "}
+        and opportunities waiting for YOU!
       </p>
       <Button className="text-background font-bold bg-foreground hover:bg-[var(--secondary-foreground)]">
         <Play />

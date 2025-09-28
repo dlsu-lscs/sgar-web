@@ -36,8 +36,8 @@ export default function Dept({ name, delay, units }: Props) {
       >
         <CarouselContent className="-ml-0 py-7">
           {units
-            .slice() // copy
-            .reverse() // reverse order
+            .slice()
+            .reverse()
             .map((unit) => (
               <CarouselItem key={unit.id} className="overflow-visible">
                 <UnitCard
