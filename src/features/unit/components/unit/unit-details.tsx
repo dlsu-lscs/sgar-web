@@ -2,7 +2,6 @@ import ImageBox from "./image-box";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import lscs from "../../data/placeholder";
 import {
   Dialog,
   DialogContent,
@@ -47,13 +46,13 @@ export default function UnitDesc({
             <VisuallyHidden.Root asChild>
               <DialogTitle />
             </VisuallyHidden.Root>
-            <DialogContent className="!border-none !bg-transparent hide-close-button">
+            <DialogContent className="!border-none !bg-transparent hide-close-button min-w-6xl">
               <Image
                 src={orgchart_pub}
-                width={500}
-                height={500}
-                alt={"Organizational Chart"}
-                className="object-cover"
+                alt="Organizational Chart"
+                width={1200}
+                height={700}
+                className="object-contain w-full h-auto rounded-md"
               />
             </DialogContent>
           </Dialog>

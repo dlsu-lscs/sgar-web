@@ -52,7 +52,10 @@ export default async function UnitContainer({ slug }: UnitContainerProps) {
         />
         <ExecBoard members={exec_board} />
         <Committee committees={unit.committees} />
-        <Application />
+        <Application
+          process={unit["application-process"]}
+          timeline={unit["application-timeline"]}
+        />
       </div>
     </>
   );

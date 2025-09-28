@@ -1,4 +1,5 @@
 import axios from "axios";
+import { UnitType } from "@/types/units.types";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const API_KEY = process.env.API_KEY;
@@ -30,7 +31,6 @@ export async function getImageAsDataUrl(src: string) {
     });
 
     const contentType = response.headers["content-type"];
-
     const base64 = Buffer.from(response.data, "binary").toString("base64");
 
     return `data:${contentType};base64,${base64}`;
@@ -43,7 +43,7 @@ export async function getImageAsDataUrl(src: string) {
 export async function getUnitBySlug(slug: string) {
   try {
     const { data } = await axios.get(
-      `${API_URL}/api/sgar-unit?where[slug][equals]=${slug}`,
+      `${API_URL}/api/sgar-units?where[slug][equals]=${slug}`,
       {
         headers: {
           Authorization: `users API-Key ${API_KEY}`,
@@ -60,4 +60,46 @@ export async function getUnitBySlug(slug: string) {
     console.error("Error in getUnitBySlug query:", error);
     throw error;
   }
+}
+
+export async function getAllUnits() {
+  try {
+    const { data } = await axios.get(`${API_URL}/api/sgar-units?limit=0`, {
+      headers: {
+        Authorization: `users API-Key ${API_KEY}`,
+      },
+    });
+    if (data?.docs && data.docs.length > 0) {
+      return data.docs;
+    }
+
+    throw new Error(`No unit found.`);
+  } catch (error) {
+    console.error("Error in getAllUnits query:", error);
+    throw error;
+  }
+}
+
+export type UnitWithImages = UnitType & {
+  mainPubUrl?: string;
+  logoUrl?: string;
+};
+
+export async function getUnitsWithImages(): Promise<UnitWithImages[]> {
+  const docs: UnitType[] = await getAllUnits();
+
+  return Promise.all(
+    docs.map(async (unit) => {
+      const [mainPub, logo] = await Promise.all([
+        getImageAsDataUrl(unit["main-pub"]?.url ?? "/none"),
+        getImageAsDataUrl(unit.logo?.url ?? "/none"),
+      ]);
+
+      return {
+        ...unit,
+        mainPubUrl: mainPub!,
+        logoUrl: logo!,
+      };
+    }),
+  );
 }

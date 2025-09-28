@@ -9,6 +9,7 @@ interface Props {
 }
 
 export default function UnitCard({ pub_url, title, logo_url, slug }: Props) {
+  console.log(pub_url);
   return (
     <Link href={`/units/${slug}`} className="group relative block">
       <div
