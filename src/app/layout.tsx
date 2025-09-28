@@ -10,9 +10,35 @@ const fontSans = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "SGAR 2025",
+  title: "SGAR '25 - '26",
   description:
     "SGAR 2025 is a weeklong university-wide event enticing students to join various student government units.",
+  openGraph: {
+    title: "SGAR '25 - '26",
+    description:
+      "SGAR 2025 is a weeklong university-wide event enticing students to join various student government units.",
+    url: "https://apply.dlsu-usg.com",
+    siteName: "SGAR '25 - '26",
+    type: "website",
+    images: [
+      {
+        url: "https://apply.dlsu-usg.com/assets/sgar-og.png",
+        width: 1200,
+        height: 630,
+        alt: "SGAR 2025 Banner",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SGAR '25 - '26",
+    description:
+      "SGAR 2025 is a weeklong university-wide event enticing students to join various student government units.",
+    images: ["https://apply.dlsu-usg.com/assets/sgar-og.png"],
+    site: "@dlsu_sgar",
+    creator: "@dlsu_usg",
+  },
+  icons: [{ rel: "icon", url: "/assets/sgar_logo2.webp", type: "image/webp" }],
 };
 
 export default function RootLayout({

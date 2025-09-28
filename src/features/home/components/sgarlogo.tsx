@@ -14,8 +14,9 @@ export default function SgarLogo2() {
       />
       <p className="hidden sm:flex text-left text-xs font-light pb-4">
         {" "}
-        DESCRIPTION: Neque porro quisquam est qui dolorem ipsum quia dolor sit
-        amet, consectetur, adipisci velit...{" "}
+        Step into the colorful world of the USG Annual Recruitment Week!
+        Discover student government units packed with adventures, creativity,
+        and opportunities waiting for YOU!{" "}
       </p>
       <Button className="text-background font-bold bg-foreground hover:bg-[var(--secondary-foreground)]">
         <Play />

@@ -32,7 +32,7 @@ export default function UnitDesc({
       <div className="sm:w-80 w-full sm:h-145 px-5 sm:px-0 relative">
         <div className="w-full h-20 border-2 border-white rounded-md items-center text-left p-5 mb-5 hidden sm:block">
           <p className="font-bold text-sm">APPLICATIONS OPEN UNTIL</p>
-          <p className="text-sm">OCT 29, 2025</p>
+          <p className="text-sm">OCT 4, 2025</p>
         </div>
 
         <div className="w-full h-120 border-2 rounded-sm border-white items-center text-left  relative flex flex-col">
@@ -46,13 +46,15 @@ export default function UnitDesc({
             <VisuallyHidden.Root asChild>
               <DialogTitle />
             </VisuallyHidden.Root>
-            <DialogContent className="!border-none !bg-transparent hide-close-button min-w-6xl">
+
+            <DialogContent className="!p-0 !m-0 bg-transparent border-none outline-none hide-close-button sm:min-w-5xl max-h-[90vh] flex items-center justify-center">
               <Image
                 src={orgchart_pub.url}
                 alt={orgchart_pub.alt}
-                width={1200}
+                width={1100}
                 height={700}
-                className="object-contain w-full h-auto rounded-md"
+                className="rounded-md object-contain w-full h-auto sm:max-w-4xl"
+                sizes="(max-width: 640px) 100vw, 80vw"
               />
             </DialogContent>
           </Dialog>
@@ -74,13 +76,13 @@ export default function UnitDesc({
             <VisuallyHidden.Root asChild>
               <DialogTitle />
             </VisuallyHidden.Root>
-            <DialogContent className="!border-none !bg-transparent hide-close-button">
+            <DialogContent className="!p-0 !bg-transparent !border-none hide-close-button outline-none">
               <Image
                 src={main_pub.url}
+                alt={main_pub.alt}
                 width={500}
                 height={500}
-                alt={main_pub.alt}
-                className="object-cover"
+                className="rounded-md object-contain"
               />
             </DialogContent>
           </Dialog>

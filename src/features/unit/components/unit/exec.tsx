@@ -37,7 +37,7 @@ export default function ExecBoard({ members = [] }: Props) {
               <VisuallyHidden.Root asChild>
                 <DialogTitle />
               </VisuallyHidden.Root>
-              <DialogContent className="!border-none !bg-transparent hide-close-button">
+              <DialogContent className="!p-0 !m-0 outline-none !border-none !bg-transparent hide-close-button">
                 <Image
                   src={member.photo?.url ?? "/assets/pfp.webp"}
                   width={500}
