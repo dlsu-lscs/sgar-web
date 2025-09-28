@@ -35,7 +35,7 @@ export default function Navbar() {
             </ul>
             <ul>
               <Button variant="link" className="text-foreground">
-                SGAR
+                <Link href="/about/sgar">SGAR</Link>
               </Button>
             </ul>
             <ul>
