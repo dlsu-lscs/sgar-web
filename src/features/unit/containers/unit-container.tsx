@@ -44,7 +44,7 @@ export default async function UnitContainer({ id }: UnitContainerProps) {
           logo={logo_pub ?? "/none"}
         />
         <ExecBoard members={exec_board} />
-        <Committee />
+        <Committee committees={unit.committees} />
         <Application />
       </div>
     </>
