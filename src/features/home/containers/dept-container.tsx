@@ -1,3 +1,5 @@
+export const revalidate = 60;
+
 import Dept from "@/features/home/components/department";
 import DeptTop from "@/features/home/components/department-top";
 import { getUnitsWithImages, UnitWithImages } from "@/services/units.services";
