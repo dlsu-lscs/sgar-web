@@ -1,3 +1,5 @@
+export const revalidate = 60;
+
 import UnitDesc from "@/features/unit/components/unit/unit-details";
 import ExecBoard from "@/features/unit/components/unit/exec";
 import Committee from "@/features/unit/components/unit/committee";
