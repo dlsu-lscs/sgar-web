@@ -14,15 +14,15 @@ interface Props {
 export default function Committee({ committees = [] }: Props) {
   return (
     <div className="flex relative flex-row gap-5 items-center w-full justify-center">
-      <div className="sm:w-250 w-full h-100 px-5 sm:px-0 relative">
-        <div className="w-full border-2 h-full border-white rounded-sm p-5 flex flex-col items-center text-center">
+      <div className="sm:w-250 w-full px-5 sm:px-0 relative">
+        <div className="w-full border-2 border-white rounded-sm p-5 flex flex-col items-center text-center">
           <p className="font-bold mb-5">COMMITTEES</p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full h-full items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full items-stretch">
             {committees.map((committee) => (
               <Dialog modal key={committee.id}>
                 <DialogTrigger
-                  className="flex h-full w-full items-center justify-center
+                  className="flex h-full min-w-[150px] px-4 py-2 items-center justify-center
                   bg-[#171717] text-center whitespace-normal break-words 
                   leading-tight border border-white 
                   hover:bg-white/10 transition-colors duration-200  
@@ -41,7 +41,7 @@ export default function Committee({ committees = [] }: Props) {
                     Positions
                   </h3>
 
-                  <div className=" list-disc list-inside">
+                  <div className="list-disc list-inside">
                     {committee.position.map((pos) => (
                       <p key={pos.id}>
                         {pos["position-name"]} —{" "}
