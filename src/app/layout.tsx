@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/features/home/components/navbar";
 
-const fontSans = Inter({
+const fontSans = Poppins({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"], // adjust weights if needed
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
 });
 

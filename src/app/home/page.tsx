@@ -1,7 +1,6 @@
 import SgarLogo2 from "@/features/home/components/sgarlogo";
-import Dept from "@/features/home/components/department";
-import DeptTop from "@/features/home/components/department-top";
 import Footer from "@/features/home/components/footer";
+import DeptContainer from "@/features/home/containers/dept-container";
 
 export default function Home() {
   return (
@@ -10,11 +9,7 @@ export default function Home() {
         <SgarLogo2 />
       </div>
       <div className="absolute inset-0 sm:top-165 top-115 w-full">
-        <div className="relative flex flex-col">
-          <DeptTop name={"MAIN COLLEGE UNITS"} delay={3000} />
-          <Dept name={"COMMISION AND OTHER UNITS"} delay={5000} />
-          <Dept name={"COLLEGE OF COMPUTER STUDIES"} delay={7000} />
-        </div>
+        <DeptContainer />
         <Footer />
       </div>
     </main>

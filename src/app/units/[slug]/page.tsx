@@ -1,31 +1,17 @@
-import UnitTitle from "@/features/unit/components/unit_title";
-import Unit from "@/features/unit/components/unit";
+import UnitContainer from "@/features/unit/containers/unit-container";
 import Footer from "@/features/home/components/footer";
 
-interface Params {
-  slug: string;
-}
+type UnitPageProps = {
+  params: { slug: string };
+};
 
-interface UnitPageProps {
-  params: Promise<Params>;
-  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
-}
-
-export default async function UnitPage({
-  params,
-  searchParams,
-}: UnitPageProps) {
-  const { slug } = await params;
-  const query = searchParams ? await searchParams : {};
+export default async function UnitPage({ params }: UnitPageProps) {
+  const { slug } = params;
 
   return (
-    <>
-      <div className="relative flex flex-col">
-        <div className="h-20 w-full" />
-        <UnitTitle />
-        <Unit />
-        <Footer />
-      </div>
-    </>
+    <div className="relative flex flex-col">
+      <UnitContainer slug={slug} />
+      <Footer />
+    </div>
   );
 }
