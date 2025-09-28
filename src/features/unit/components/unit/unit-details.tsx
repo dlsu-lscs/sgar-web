@@ -22,8 +22,6 @@ export default function UnitDesc({ unit, main_pub, logo }: UnitDescProps) {
   const isApplicationLinkAvailable =
     unit["form-link"] && unit["form-link"] !== "no link";
 
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
-
   return (
     <div className="flex sm:flex-row relative flex-col gap-5 align-center items-center justify-center w-full">
       <div className="sm:w-80 w-full sm:h-145 px-5 sm:px-0 relative">
@@ -38,14 +36,14 @@ export default function UnitDesc({ unit, main_pub, logo }: UnitDescProps) {
           </div>
           <Dialog modal>
             <DialogTrigger asChild className="cursor-pointer w-full h-full">
-              <ImageBox src={lscs.pub_url} alt="Organizational Chart" />
+              <ImageBox src={"/none"} alt="Organizational Chart" />
             </DialogTrigger>
             <VisuallyHidden.Root asChild>
               <DialogTitle />
             </VisuallyHidden.Root>
             <DialogContent className="!border-none !bg-transparent hide-close-button">
               <Image
-                src={unit["main-pub"]?.url || lscs.pub_url}
+                src={"/none"}
                 width={500}
                 height={500}
                 alt={"Organizational Chart"}
@@ -83,31 +81,46 @@ export default function UnitDesc({ unit, main_pub, logo }: UnitDescProps) {
         </div>
       </div>
       <div className="sm:w-80 sm:h-145 w-full px-5 sm:px-0 relative">
-        <div className="w-full sm:h-75 h-80 border-2 border-white rounded-md items-center text-left mb-5 justify-center flex flex-col gap-5">
+        <div className="w-full h-20 border-2 border-white rounded-md items-center text-left p-2 mb-5 flex flex-row">
           <Image
-            src={logo}
-            alt="Unit Logo Image"
-            width={200}
-            height={200}
-            className="object-contain"
+            src="/assets/sgar_logo2.webp"
+            alt="SGAR logo"
+            width={70}
+            height={70}
           />
-          UNIT LOGO
+          <div className="flex flex-col text-xs ml-4">
+            <p className="font-bold">CLUSTER</p>
+            <p>{lscs.cluster}</p>
+          </div>
         </div>
-        <div className="w-full h-20 border-2 border-white rounded-md items-center text-left p-5 mb-5 block sm:hidden">
-          <p className="font-bold text-sm">APPLICATIONS OPEN UNTIL</p>
-          <p className="text-sm">OCT 29, 2025</p>
-        </div>
-        <div className="w-full h-40 border-2 border-white rounded-md items-center text-left mb-5 justify-center flex flex-col gap-3">
-          <p className="font-bold">APPLICATION FORM</p>
-          <Button
-            asChild
-            className="border border-white px-16 hover:bg-white/10"
-            disabled={!isApplicationLinkAvailable}
-          >
-            <Link href={isApplicationLinkAvailable ? unit["form-link"] : "#"}>
-              APPLY NOW
-            </Link>
-          </Button>
+
+        <div className="sm:w-80 sm:h-145 w-full px-5 sm:px-0 relative">
+          <div className="w-full sm:h-75 h-80 border-2 border-white rounded-md items-center text-left mb-5 justify-center flex flex-col gap-5">
+            <Image
+              src={logo}
+              alt="Unit Logo Image"
+              width={200}
+              height={200}
+              className="object-contain"
+            />
+            UNIT LOGO
+          </div>
+          <div className="w-full h-20 border-2 border-white rounded-md items-center text-left p-5 mb-5 block sm:hidden">
+            <p className="font-bold text-sm">APPLICATIONS OPEN UNTIL</p>
+            <p className="text-sm">OCT 29, 2025</p>
+          </div>
+          <div className="w-full h-40 border-2 border-white rounded-md items-center text-left mb-5 justify-center flex flex-col gap-3">
+            <p className="font-bold">APPLICATION FORM</p>
+            <Button
+              asChild
+              className="border border-white px-16 hover:bg-white/10"
+              disabled={!isApplicationLinkAvailable}
+            >
+              <Link href={isApplicationLinkAvailable ? unit["form-link"] : "#"}>
+                APPLY NOW
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
     </div>
