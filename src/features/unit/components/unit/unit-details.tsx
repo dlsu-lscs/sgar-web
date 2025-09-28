@@ -13,9 +13,9 @@ import { UnitType } from "@/types/units.types";
 
 type UnitDescProps = {
   unit: UnitType;
-  logo: string;
-  main_pub: string;
-  orgchart_pub: string;
+  logo: { url: string; alt: string };
+  main_pub: { url: string; alt: string };
+  orgchart_pub: { url: string; alt: string };
 };
 
 export default function UnitDesc({
@@ -41,15 +41,15 @@ export default function UnitDesc({
           </div>
           <Dialog modal>
             <DialogTrigger asChild className="cursor-pointer w-full h-full">
-              <ImageBox src={orgchart_pub} alt="Organizational Chart" />
+              <ImageBox src={orgchart_pub.url} alt={orgchart_pub.alt} />
             </DialogTrigger>
             <VisuallyHidden.Root asChild>
               <DialogTitle />
             </VisuallyHidden.Root>
             <DialogContent className="!border-none !bg-transparent hide-close-button min-w-6xl">
               <Image
-                src={orgchart_pub}
-                alt="Organizational Chart"
+                src={orgchart_pub.url}
+                alt={orgchart_pub.alt}
                 width={1200}
                 height={700}
                 className="object-contain w-full h-auto rounded-md"
@@ -58,6 +58,7 @@ export default function UnitDesc({
           </Dialog>
         </div>
       </div>
+
       <div className="sm:w-150 sm:h-145 px-5 sm:px-0 relative order-first sm:order-none">
         <div className="w-full h-[50%] border-2 border-white rounded-md text-left p-5 mb-5 flex flex-col">
           <h3 className="font-bold mb-3">UNIT DESCRIPTION</h3>
@@ -68,23 +69,24 @@ export default function UnitDesc({
         <div className="w-full h-67 border-2 border-white rounded-md items-center text-left mb-5">
           <Dialog modal>
             <DialogTrigger asChild className="cursor-pointer w-full h-full">
-              <ImageBox src={main_pub} alt="Main Pub" />
+              <ImageBox src={main_pub.url} alt={main_pub.alt} />
             </DialogTrigger>
             <VisuallyHidden.Root asChild>
               <DialogTitle />
             </VisuallyHidden.Root>
             <DialogContent className="!border-none !bg-transparent hide-close-button">
               <Image
-                src={main_pub}
+                src={main_pub.url}
                 width={500}
                 height={500}
-                alt={"Main Pub"}
+                alt={main_pub.alt}
                 className="object-cover"
               />
             </DialogContent>
           </Dialog>
         </div>
       </div>
+
       <div className="sm:w-80 sm:h-145 w-full px-5 sm:px-0 relative">
         <div className="w-full h-20 border-2 border-white rounded-md items-center text-left p-2 mb-5 flex flex-row">
           <Image
@@ -102,8 +104,8 @@ export default function UnitDesc({
         <div className="sm:w-80 sm:h-145 w-full px-5 sm:px-0 relative">
           <div className="w-full sm:h-75 h-80 border-2 border-white rounded-md items-center text-left mb-5 justify-center flex flex-col gap-5">
             <Image
-              src={logo}
-              alt="Unit Logo Image"
+              src={logo.url}
+              alt={logo.alt}
               width={200}
               height={200}
               className="object-contain"

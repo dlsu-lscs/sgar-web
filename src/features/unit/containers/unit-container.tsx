@@ -1,5 +1,3 @@
-export const revalidate = 60;
-
 import UnitDesc from "@/features/unit/components/unit/unit-details";
 import ExecBoard from "@/features/unit/components/unit/exec";
 import Committee from "@/features/unit/components/unit/committee";
@@ -47,9 +45,21 @@ export default async function UnitContainer({ slug }: UnitContainerProps) {
       <div className="bg-[var(--card-tertiary-foreground)] w-full h-full flex flex-col relative items-top justify-center gap-15">
         <UnitDesc
           unit={unit}
-          main_pub={main_pub ?? "/none"}
-          logo={logo_pub ?? "/none"}
-          orgchart_pub={orgchart_pub ?? "/none"}
+          main_pub={
+            main_pub
+              ? { url: main_pub, alt: unit["unit-name"] }
+              : { url: "/none", alt: "None" }
+          }
+          logo={
+            logo_pub
+              ? { url: logo_pub, alt: unit["unit-name"] }
+              : { url: "/none", alt: "None" }
+          }
+          orgchart_pub={
+            orgchart_pub
+              ? { url: orgchart_pub, alt: unit["unit-name"] }
+              : { url: "/none", alt: "None" }
+          }
         />
         <ExecBoard members={exec_board} />
         <Committee committees={unit.committees} />
