@@ -1,21 +1,33 @@
+export type MediaType = {
+  id: number;
+  alt: string;
+  url: string;
+  thumbnailURL: string | null;
+  filename: string;
+  mimeType: string;
+  filesize: number;
+  width: number;
+  height: number;
+};
+
 export type ExecBoardMember = {
   id: string;
-  fullName: string;
+  "full-name": string;
   position: string;
   email: string;
-  telegramUsername: string;
-  photo: string | null;
+  "telegram-username": string;
+  photo: MediaType | null;
 };
 
 export type CommitteePosition = {
   id: string;
-  positionName: string;
+  "position-name": string;
   status: string;
 };
 
 export type Committee = {
   id: string;
-  committeeName: string;
+  "committee-name": string;
   description: string;
   requirements: string | null;
   position: CommitteePosition[];
@@ -23,14 +35,15 @@ export type Committee = {
 
 export type UnitType = {
   id: number;
-  unitName: string;
-  slug: string;
+  "unit-name": string;
+  slug?: string;
   description: string;
-  formLink: string;
-  logo: string | null;
-  mainPub: string | null;
-  applicationProcess: string;
-  executiveBoard: ExecBoardMember[];
+  "form-link": string;
+  logo: MediaType | null;
+  "main-pub": MediaType | null;
+  "application-process": string;
+  "application-timeline": string;
+  "executive-board": ExecBoardMember[];
   committees: Committee[];
   updatedAt: string;
   createdAt: string;
