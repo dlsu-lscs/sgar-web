@@ -3,7 +3,6 @@ import ExecBoard from "@/features/unit/components/unit/exec";
 import Committee from "@/features/unit/components/unit/committee";
 import Application from "@/features/unit/components/unit/application";
 import UnitTitle from "@/features/unit/components/unit_title";
-import { AiOutlineLoading } from "react-icons/ai";
 import { ExecBoardMember } from "@/types/units.types";
 import { getUnitBySlug, getImageAsDataUrl } from "@/services/units.services";
 
