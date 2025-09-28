@@ -6,46 +6,69 @@ import Sidebar from "./sidebar";
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-50">
-      <nav className=" relative flex flex-row bg-black sm:py-2 py-1 sm:px-8 px-5">
+      <nav className="relative flex flex-row bg-black sm:py-2 py-1 sm:px-8 px-5">
         <div className="flex justify-between items-center w-full">
-          <Image
-            src="/assets/sgar_logo.webp"
-            alt="SGAR logo"
-            width={168}
-            height={55}
-            className="object-contain"
-          />
-          <li className="hidden sm:flex space-x-2 items-center">
-            <ul>
-              <Button variant="link" className="text-foreground ">
-                <Link href="/" className="">
+          <Link href="/" className="cursor-pointer">
+            <Image
+              src="/assets/sgar_logo.webp"
+              alt="SGAR logo"
+              width={168}
+              height={55}
+              className="object-contain"
+            />
+          </Link>
+          <ul className="hidden sm:flex space-x-2 items-center">
+            <li>
+              <Link href="/" passHref>
+                <Button
+                  variant="link"
+                  className="text-foreground cursor-pointer"
+                >
                   HOME
-                </Link>
-              </Button>
-            </ul>
-            <ul>
-              <Button variant="link" className="text-foreground">
-                MAP
-              </Button>
-            </ul>
-            <ul>
-              <Button variant="link" className="text-foreground">
-                FAQs
-              </Button>
-            </ul>
-            <ul>
-              <Button variant="link" className="text-foreground">
-                SGAR
-              </Button>
-            </ul>
-            <ul>
-              <Button variant="link" className="text-foreground">
-                <Link href="/about/lscs" className="">
+                </Button>
+              </Link>
+            </li>
+            <li>
+              <Link href="/map" passHref>
+                <Button
+                  variant="link"
+                  className="text-foreground cursor-pointer"
+                >
+                  MAP
+                </Button>
+              </Link>
+            </li>
+            <li>
+              <Link href="/faqs" passHref>
+                <Button
+                  variant="link"
+                  className="text-foreground cursor-pointer"
+                >
+                  FAQs
+                </Button>
+              </Link>
+            </li>
+            <li>
+              <Link href="/about/sgar" passHref>
+                <Button
+                  variant="link"
+                  className="text-foreground cursor-pointer"
+                >
+                  SGAR
+                </Button>
+              </Link>
+            </li>
+            <li>
+              <Link href="/about/lscs" passHref>
+                <Button
+                  variant="link"
+                  className="text-foreground cursor-pointer"
+                >
                   LSCS
-                </Link>
-              </Button>
-            </ul>
-          </li>
+                </Button>
+              </Link>
+            </li>
+          </ul>
         </div>
         <div className="flex sm:hidden">
           <Sidebar />

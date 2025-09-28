@@ -19,9 +19,9 @@ interface Props {
 
 export default function DeptTop({ name, delay, units }: Props) {
   return (
-    <div className="relative w-auto z-10 h-[90%]">
-      <div className="bg-gradient-to-t from-[var(--card-tertiary-foreground)] to-transparent sm:h-96 h-88 w-full absolute inset-0 -top-15 z-0" />
-      <h2 className="relative text-xl flex justify-center items-center sm:justify-start font-bold text-white mb-6 px-8 sm:px-16 z-20">
+    <div className="relative w-auto z-10 h-[95%]">
+      <div className="bg-gradient-to-t from-[var(--card-tertiary-foreground)] to-transparent sm:h-109 h-107 w-full absolute inset-0 -top-15 z-0" />
+      <h2 className="relative sm:text-3xl text-2xl flex sm:text-left text-center justify-center items-center sm:justify-start font-bold text-white mb-6 px-8 sm:px-16 z-20">
         {name}
       </h2>
       <div className="relative">

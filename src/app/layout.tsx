@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import HydrationLoader from "@/components/hydration-loader";
 import "./globals.css";
-import Navbar from "@/features/home/components/navbar";
 
 const fontSans = Poppins({
   subsets: ["latin"],
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/assets/sgar_logo2.webp", type: "image/webp" }],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -51,8 +51,7 @@ export default function RootLayout({
       <body
         className={`min-h-screen bg-center bg-contain bg-repeat bg-[url('/assets/bg.webp')] ${fontSans.className} ${fontSans.variable} antialiased relative`}
       >
-        <Navbar />
-        {children}
+        <HydrationLoader>{children}</HydrationLoader>
       </body>
     </html>
   );

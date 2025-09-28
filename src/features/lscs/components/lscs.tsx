@@ -1,7 +1,7 @@
 export default function AboutLSCS() {
   return (
-    <div className="bg-[var(--card-tertiary-foreground)] w-full min-h-screen flex flex-col items-center py-20 gap-y-16 sm:gap-y-24">
-      <div className="w-full max-w-3xl text-center">
+    <div className="bg-[var(--card-tertiary-foreground)] w-full h-full flex flex-col items-center py-20 gap-y-16 sm:gap-y-24 z-0">
+      <div className="w-full sm:max-w-5xl max-w-lg sm:px-0 px-5 text-center">
         <h2 className="text-3xl sm:text-4xl font-bold mb-6">ABOUT LSCS</h2>
         <p className="text-base leading-relaxed">
           La Salle Computer Society (LSCS) is DLSU&apos;s largest and pioneering
@@ -15,8 +15,8 @@ export default function AboutLSCS() {
         </p>
       </div>
 
-      <div className="w-full max-w-3xl text-center">
-        <h2 className="text-2xl font-bold mb-4">VISION</h2>
+      <div className="w-full sm:max-w-5xl max-w-lg sm:px-0 px-5 text-center">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4">VISION</h2>
         <p className="text-base leading-relaxed">
           We envision the La Salle Computer Society to be an organization that,
           through quality assistance and activities, will mold its members
@@ -29,8 +29,8 @@ export default function AboutLSCS() {
         </p>
       </div>
 
-      <div className="w-full max-w-3xl text-center">
-        <h2 className="text-2xl font-bold mb-4">MISSION</h2>
+      <div className="w-full sm:max-w-5xl max-w-lg sm:px-0 px-5 text-center">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4">MISSION</h2>
         <div className="text-base leading-relaxed space-y-4">
           <p>
             <span className="font-bold">Purpose</span> - to know and understand

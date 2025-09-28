@@ -18,10 +18,24 @@ export default async function DeptContainer() {
 
   return (
     <div className="relative flex flex-col">
-      <DeptTop name="CABINET" delay={3000} units={clusters["Cabinet"] ?? []} />
+      <DeptTop
+        name="DEPARTMENTS AND EXECUTIVE BOARD"
+        delay={3000}
+        units={clusters["Departments and Executive Board"] ?? []}
+      />
+
+      <Dept
+        name="INDEPENDENT BODIES"
+        delay={5000}
+        units={clusters["Independent Bodies"] ?? []}
+      />
 
       {Object.entries(clusters)
-        .filter(([clusterName]) => clusterName.toLowerCase() !== "cabinet")
+        .filter(
+          ([clusterName]) =>
+            clusterName.toLowerCase() !== "departments and executive board" &&
+            clusterName.toLowerCase() !== "independent bodies",
+        )
         .map(([clusterName, units], idx) => (
           <Dept
             key={clusterName}

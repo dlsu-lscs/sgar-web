@@ -1,7 +1,7 @@
-import LSCSTitle from "@/features/lscs/components/lscs_title";
-import Navbar from "@/features/home/components/navbar";
-import AboutLSCS from "@/features/lscs/components/lscs";
 import Footer from "@/features/home/components/footer";
+import Navbar from "@/features/home/components/navbar";
+import FAQsTitle from "@/features/faqs/components/faqs-title";
+import FAQs from "@/features/faqs/components/faqs";
 
 export default function LSCS() {
   return (
@@ -9,8 +9,8 @@ export default function LSCS() {
       <Navbar />
       <div className="relative flex flex-col">
         <div className="h-20 w-full" />
-        <LSCSTitle />
-        <AboutLSCS />
+        <FAQsTitle />
+        <FAQs />
         <Footer />
       </div>
     </>
