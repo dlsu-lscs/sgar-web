@@ -22,19 +22,22 @@ export default function Application({ process, timeline }: ApplicationProps) {
     .filter((line) => line.trim() !== "");
 
   return (
-    <div className="flex relative flex-col gap-1 mt-5 items-center w-full justify-center">
-      <div className="w-full h-20 text-3xl text-center uppercase font-bold">
+    <div className="flex relative flex-col gap-6 mt-5 items-center w-full justify-center px-4">
+      <div className="w-full text-3xl text-center uppercase font-bold">
         HOW TO APPLY
       </div>
 
-      <div className="w-[60%] h-full rounded-sm flex flex-col items-start relative mb-8">
+      <div className="w-full sm:w-[60%] h-full rounded-sm flex flex-col items-start relative mb-8">
         <h1 className="font-bold mb-2 text-2xl">APPLICATION PROCESS</h1>
-        <div className="text-left w-full">
+        <div className="text-left w-full space-y-2">
           {steps.map((line, index) => {
             const parts = line.split(/\s+/);
             const stepLabel = parts.shift();
             return (
-              <p key={index}>
+              <p
+                key={index}
+                className="leading-relaxed break-words text-justify sm:text-left"
+              >
                 <span className="font-bold">{stepLabel}:</span>{" "}
                 <span>{parts.join(" ")}</span>
               </p>
@@ -43,15 +46,18 @@ export default function Application({ process, timeline }: ApplicationProps) {
         </div>
       </div>
 
-      <div className="w-[60%] h-full rounded-sm  flex flex-col items-start relative mb-8">
+      <div className="w-full sm:w-[60%] h-full rounded-sm flex flex-col items-start relative mb-8">
         <h1 className="font-bold mb-2 text-2xl">APPLICATION TIMELINE</h1>
-        <div className="text-left w-full">
+        <div className="text-left w-full space-y-2">
           {timelineLines.map((line, index) => {
             const parts = line.split(/\t+/);
             const date = parts[0];
             const event = parts[1];
             return (
-              <p key={index}>
+              <p
+                key={index}
+                className="leading-relaxed break-words text-justify sm:text-left"
+              >
                 <span className="font-bold">{date}:</span> <span>{event}</span>
               </p>
             );
@@ -59,12 +65,15 @@ export default function Application({ process, timeline }: ApplicationProps) {
         </div>
       </div>
 
-      <div className="w-[60%] h-full rounded-sm flex flex-col items-start relative mb-50">
+      <div className="w-full sm:w-[60%] h-full rounded-sm flex flex-col items-start relative mb-8">
         <h1 className="font-bold mb-2 text-2xl">SPECIAL REQUIREMENTS</h1>
-        <div className="text-left w-full">
+        <div className="text-left w-full space-y-2">
           {requirements.length > 0 ? (
             requirements.map((req, index) => (
-              <p key={index} className="mb-1">
+              <p
+                key={index}
+                className="leading-relaxed break-words text-justify sm:text-left"
+              >
                 {req}
               </p>
             ))

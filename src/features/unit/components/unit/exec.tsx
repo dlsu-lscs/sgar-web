@@ -26,7 +26,7 @@ export default function ExecBoard({ members = [] }: Props) {
               <DialogTrigger asChild>
                 <div className="w-50 h-60 relative cursor-pointer group rounded-md border-white border-2 overflow-hidden">
                   <Image
-                    src={member.photo?.url ?? "/none"}
+                    src={member.photo?.url ?? "/assets/pfp.webp"}
                     fill
                     alt={member.photo?.alt || member["full-name"]}
                     className="object-cover rounded-md"
@@ -39,7 +39,7 @@ export default function ExecBoard({ members = [] }: Props) {
               </VisuallyHidden.Root>
               <DialogContent className="!border-none !bg-transparent hide-close-button">
                 <Image
-                  src={member.photo?.url ?? "/none"}
+                  src={member.photo?.url ?? "/assets/pfp.webp"}
                   width={500}
                   height={500}
                   alt={member.photo?.alt || member["full-name"]}

@@ -45,8 +45,8 @@ export default function DeptTop({ name, delay, units }: Props) {
             {units.map((unit) => (
               <CarouselItem key={unit.id} className="overflow-visible">
                 <UnitCard
-                  pub_url={unit.mainPubUrl}
-                  logo_url={unit.logoUrl}
+                  pub_url={unit.mainPubUrl ?? "/none"}
+                  logo_url={unit.logoUrl ?? "/none"}
                   title={unit["unit-name"]}
                   slug={unit.slug ?? ""}
                 />
