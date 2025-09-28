@@ -32,7 +32,7 @@ export default function UnitDesc({
       <div className="sm:w-80 w-full sm:h-145 px-5 sm:px-0 relative">
         <div className="w-full h-20 border-2 border-white rounded-md items-center text-left p-5 mb-5 hidden sm:block">
           <p className="font-bold text-sm">APPLICATIONS OPEN UNTIL</p>
-          <p className="text-sm">OCT 29, 2025</p>
+          <p className="text-sm">OCT 4, 2025</p>
         </div>
 
         <div className="w-full h-120 border-2 rounded-sm border-white items-center text-left  relative flex flex-col">

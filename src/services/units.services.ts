@@ -1,20 +1,31 @@
-import axios from "axios";
 import { UnitType } from "@/types/units.types";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
-const API_KEY = process.env.API_KEY;
+const API_URL = process.env.NEXT_PUBLIC_API_URL!;
+const API_KEY = process.env.API_KEY!;
+
+const defaultHeaders = {
+  Authorization: `users API-Key ${API_KEY}`,
+};
+
+async function fetchJSON<T>(url: string): Promise<T> {
+  const res = await fetch(url, {
+    method: "GET",
+    headers: defaultHeaders,
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    throw new Error(`Fetch error: ${res.status} ${res.statusText}`);
+  }
+
+  return res.json();
+}
 
 export async function getUnitById(id: number) {
   try {
-    const { data } = await axios.get(
+    return await fetchJSON(
       `${API_URL}/api/sgar-units/${id}?depth=2&draft=false&trash=false`,
-      {
-        headers: {
-          Authorization: `users API-Key ${API_KEY}`,
-        },
-      },
     );
-    return data;
   } catch (error) {
     console.error("Error in getUnitById query:", error);
     throw error;
@@ -23,17 +34,21 @@ export async function getUnitById(id: number) {
 
 export async function getImageAsDataUrl(src: string) {
   try {
-    const response = await axios.get(`${API_URL}${src}`, {
-      headers: {
-        Authorization: `users API-Key ${API_KEY}`,
-      },
-      responseType: "arraybuffer",
+    const res = await fetch(`${API_URL}${src}`, {
+      method: "GET",
+      headers: defaultHeaders,
+      cache: "no-store",
     });
 
-    const contentType = response.headers["content-type"];
-    const base64 = Buffer.from(response.data, "binary").toString("base64");
+    if (!res.ok) {
+      throw new Error(`Image fetch failed: ${res.status}`);
+    }
 
-    return `data:${contentType};base64,${base64}`;
+    const contentType =
+      res.headers.get("content-type") ?? "application/octet-stream";
+    const buffer = Buffer.from(await res.arrayBuffer());
+
+    return `data:${contentType};base64,${buffer.toString("base64")}`;
   } catch (error) {
     console.error("Error in getImageAsDataUrl query:", error);
     return null;
@@ -42,16 +57,11 @@ export async function getImageAsDataUrl(src: string) {
 
 export async function getUnitBySlug(slug: string) {
   try {
-    const { data } = await axios.get(
+    const data = await fetchJSON<{ docs: UnitType[] }>(
       `${API_URL}/api/sgar-units?where[slug][equals]=${slug}`,
-      {
-        headers: {
-          Authorization: `users API-Key ${API_KEY}`,
-        },
-      },
     );
 
-    if (data?.docs && data.docs.length > 0) {
+    if (data?.docs?.length > 0) {
       return data.docs[0];
     }
 
@@ -64,12 +74,11 @@ export async function getUnitBySlug(slug: string) {
 
 export async function getAllUnits() {
   try {
-    const { data } = await axios.get(`${API_URL}/api/sgar-units?limit=0`, {
-      headers: {
-        Authorization: `users API-Key ${API_KEY}`,
-      },
-    });
-    if (data?.docs && data.docs.length > 0) {
+    const data = await fetchJSON<{ docs: UnitType[] }>(
+      `${API_URL}/api/sgar-units?limit=0`,
+    );
+
+    if (data?.docs?.length > 0) {
       return data.docs;
     }
 
