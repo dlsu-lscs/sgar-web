@@ -14,6 +14,16 @@ export default async function DeptContainer() {
     {},
   );
 
+  const deptEbUnitsRaw = clusters["Departments and Executive Board"] ?? [];
+  const lcsg = deptEbUnitsRaw.find((u) => u.slug?.toLowerCase() === "lcsg");
+  const osec = deptEbUnitsRaw.find((u) => u.slug?.toLowerCase() === "osec");
+  const others = deptEbUnitsRaw.filter(
+    (u) => !["lcsg", "osec"].includes(u.slug?.toLowerCase() || ""),
+  );
+  const deptEbUnits = [lcsg, osec, ...others].filter(
+    Boolean,
+  ) as UnitWithImages[];
+
   const delays = [3000, 5000, 7000];
 
   return (
@@ -21,7 +31,7 @@ export default async function DeptContainer() {
       <DeptTop
         name="DEPARTMENTS AND EXECUTIVE BOARD"
         delay={3000}
-        units={clusters["Departments and Executive Board"] ?? []}
+        units={deptEbUnits}
       />
 
       <Dept

@@ -42,21 +42,18 @@ export default function DeptTop({ name, delay, units }: Props) {
           className="z-20"
         >
           <CarouselContent className="-ml-0 py-10">
-            {units
-              .slice()
-              .reverse()
-              .map((unit) => (
-                <CarouselItem key={unit.id} className="overflow-visible">
-                  <UnitCard
-                    pub_url={unit.mainPubUrl ?? "/none"}
-                    logo_url={unit.logoUrl ?? "/none"}
-                    title={unit["unit-name"]}
-                    slug={unit.slug ?? ""}
-                    pub_alt={unit["main-pub"]?.alt ?? "alt"}
-                    logo_alt={unit["logo"]?.alt ?? "alt"}
-                  />
-                </CarouselItem>
-              ))}
+            {units.map((unit) => (
+              <CarouselItem key={unit.id} className="overflow-visible">
+                <UnitCard
+                  pub_url={unit.mainPubUrl ?? "/none"}
+                  logo_url={unit.logoUrl ?? "/none"}
+                  title={unit["unit-name"]}
+                  slug={unit.slug ?? ""}
+                  pub_alt={unit["main-pub"]?.alt ?? "alt"}
+                  logo_alt={unit["logo"]?.alt ?? "alt"}
+                />
+              </CarouselItem>
+            ))}
           </CarouselContent>
           <div className="flex items-center justify-between px-5">
             <CarouselPrevious className="sm:static sm:flex hidden" />
