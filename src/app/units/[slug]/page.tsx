@@ -1,12 +1,11 @@
 import UnitContainer from "@/features/unit/containers/unit-container";
 import Footer from "@/features/home/components/footer";
 
-type UnitPageProps = {
-  params: { slug: string } | Promise<{ slug: string }>;
-};
+type Params = Promise<{ slug: string }>;
 
-export default async function UnitPage({ params }: UnitPageProps) {
-  const { slug } = await params;
+export default async function UnitPage(props: { params: Params }) {
+  const params = await props.params;
+  const slug = params.slug;
 
   return (
     <div className="relative flex flex-col">
