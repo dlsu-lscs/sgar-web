@@ -1,3 +1,5 @@
+export const revalidate = 60;
+
 import UnitContainer from "@/features/unit/containers/unit-container";
 import Footer from "@/features/home/components/footer";
 

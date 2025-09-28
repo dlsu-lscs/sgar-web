@@ -42,6 +42,8 @@ export default function Dept({ name, delay, units }: Props) {
                 logo_url={unit.logoUrl ?? "/none"}
                 title={unit["unit-name"]}
                 slug={unit.slug ?? ""}
+                pub_alt={unit["main-pub"]?.alt ?? "alt"}
+                logo_alt={unit["logo"]?.alt ?? "alt"}
               />
             </CarouselItem>
           ))}

@@ -1,3 +1,5 @@
+export const revalidate = 60;
+
 import SgarLogo2 from "@/features/home/components/sgarlogo";
 import Footer from "@/features/home/components/footer";
 import DeptContainer from "@/features/home/containers/dept-container";

@@ -6,9 +6,17 @@ interface Props {
   title: string;
   logo_url: string;
   slug: string;
+  pub_alt: string;
+  logo_alt: string;
 }
 
-export default function UnitCard({ pub_url, title, logo_url, slug }: Props) {
+export default function UnitCard({
+  pub_url,
+  title,
+  logo_url,
+  slug,
+  logo_alt,
+}: Props) {
   return (
     <Link href={`/units/${slug}`} className="group relative block">
       <div
@@ -21,7 +29,7 @@ export default function UnitCard({ pub_url, title, logo_url, slug }: Props) {
         <div className="relative flex flex-col justify-between h-full p-2">
           <Image
             src={logo_url}
-            alt="draft logo"
+            alt={logo_alt}
             width={60}
             height={60}
             className="object-contain"
