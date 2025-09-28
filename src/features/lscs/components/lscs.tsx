@@ -4,7 +4,7 @@ export default function AboutLSCS() {
       <div className="w-full max-w-3xl text-center">
         <h2 className="text-3xl sm:text-4xl font-bold mb-6">ABOUT LSCS</h2>
         <p className="text-base leading-relaxed">
-          La Salle Computer Society (LSCS) is DLSU's largest and pioneering
+          La Salle Computer Society (LSCS) is DLSU&apos;s largest and pioneering
           technological organization and the home organization of the College of
           Computer Studies. LSCS is committed to help students learn more about
           tech through interactive workshops, make new friends with recreational
