@@ -5,20 +5,25 @@ import Application from "@/features/unit/components/unit/application";
 import UnitTitle from "@/features/unit/components/unit_title";
 import { AiOutlineLoading } from "react-icons/ai";
 import { ExecBoardMember } from "@/types/units.types";
-import { getUnitById, getImageAsDataUrl } from "@/services/units.services";
+import { getUnitBySlug, getImageAsDataUrl } from "@/services/units.services";
 
 type UnitContainerProps = {
-  id: number;
+  slug: string;
 };
 
-export default async function UnitContainer({ id }: UnitContainerProps) {
-  const unit = await getUnitById(id);
-  const [main_pub, logo_pub] = await Promise.all([
+export default async function UnitContainer({ slug }: UnitContainerProps) {
+  const unit = await getUnitBySlug(slug);
+
+  const [main_pub, logo_pub, orgchart_pub] = await Promise.all([
     unit["main-pub"]?.url
       ? getImageAsDataUrl(unit["main-pub"].url)
       : Promise.resolve(null),
     unit.logo?.url ? getImageAsDataUrl(unit.logo.url) : Promise.resolve(null),
+    unit["org-chart"]?.url
+      ? getImageAsDataUrl(unit["org-chart"].url)
+      : Promise.resolve(null),
   ]);
+
   const exec_board: ExecBoardMember[] = await Promise.all(
     unit["executive-board"].map(async (member: ExecBoardMember) => {
       if (member.photo?.url) {
@@ -34,6 +39,7 @@ export default async function UnitContainer({ id }: UnitContainerProps) {
       return member;
     }),
   );
+
   return (
     <>
       <UnitTitle name={unit["unit-name"]} />
@@ -42,6 +48,7 @@ export default async function UnitContainer({ id }: UnitContainerProps) {
           unit={unit}
           main_pub={main_pub ?? "/none"}
           logo={logo_pub ?? "/none"}
+          orgchart_pub={orgchart_pub ?? "/none"}
         />
         <ExecBoard members={exec_board} />
         <Committee committees={unit.committees} />

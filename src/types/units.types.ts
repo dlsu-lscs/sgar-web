@@ -8,6 +8,10 @@ export type MediaType = {
   filesize: number;
   width: number;
   height: number;
+  focalX: number;
+  focalY: number;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type ExecBoardMember = {
@@ -33,14 +37,23 @@ export type Committee = {
   position: CommitteePosition[];
 };
 
+export type ClusterType = {
+  id: number;
+  "cluster-name": string;
+  createdAt: string;
+  updatedAt: string;
+};
+
 export type UnitType = {
   id: number;
   "unit-name": string;
   slug?: string;
+  cluster: ClusterType;
   description: string;
   "form-link": string;
   logo: MediaType | null;
   "main-pub": MediaType | null;
+  "org-chart": MediaType | null;
   "application-process": string;
   "application-timeline": string;
   "executive-board": ExecBoardMember[];

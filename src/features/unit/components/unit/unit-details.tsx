@@ -16,9 +16,15 @@ type UnitDescProps = {
   unit: UnitType;
   logo: string;
   main_pub: string;
+  orgchart_pub: string;
 };
 
-export default function UnitDesc({ unit, main_pub, logo }: UnitDescProps) {
+export default function UnitDesc({
+  unit,
+  main_pub,
+  logo,
+  orgchart_pub,
+}: UnitDescProps) {
   const isApplicationLinkAvailable =
     unit["form-link"] && unit["form-link"] !== "no link";
 
@@ -36,14 +42,14 @@ export default function UnitDesc({ unit, main_pub, logo }: UnitDescProps) {
           </div>
           <Dialog modal>
             <DialogTrigger asChild className="cursor-pointer w-full h-full">
-              <ImageBox src={"/none"} alt="Organizational Chart" />
+              <ImageBox src={orgchart_pub} alt="Organizational Chart" />
             </DialogTrigger>
             <VisuallyHidden.Root asChild>
               <DialogTitle />
             </VisuallyHidden.Root>
             <DialogContent className="!border-none !bg-transparent hide-close-button">
               <Image
-                src={"/none"}
+                src={orgchart_pub}
                 width={500}
                 height={500}
                 alt={"Organizational Chart"}
@@ -90,7 +96,7 @@ export default function UnitDesc({ unit, main_pub, logo }: UnitDescProps) {
           />
           <div className="flex flex-col text-xs ml-4">
             <p className="font-bold">CLUSTER</p>
-            <p>{lscs.cluster}</p>
+            <p>{unit.cluster["cluster-name"]}</p>
           </div>
         </div>
 

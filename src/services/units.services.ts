@@ -39,3 +39,25 @@ export async function getImageAsDataUrl(src: string) {
     return null;
   }
 }
+
+export async function getUnitBySlug(slug: string) {
+  try {
+    const { data } = await axios.get(
+      `${API_URL}/api/sgar-unit?where[slug][equals]=${slug}`,
+      {
+        headers: {
+          Authorization: `users API-Key ${API_KEY}`,
+        },
+      },
+    );
+
+    if (data?.docs && data.docs.length > 0) {
+      return data.docs[0];
+    }
+
+    throw new Error(`No unit found for slug: ${slug}`);
+  } catch (error) {
+    console.error("Error in getUnitBySlug query:", error);
+    throw error;
+  }
+}
