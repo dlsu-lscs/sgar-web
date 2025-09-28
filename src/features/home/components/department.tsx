@@ -20,7 +20,7 @@ interface Props {
 export default function Dept({ name, delay, units }: Props) {
   return (
     <div className="relative w-full z-10 bg-[var(--card-tertiary-foreground)] pt-0">
-      <h2 className="text-xl font-bold text-white mb-6 px-8 sm:px-16">
+      <h2 className="sm:text-3xl text-2xl  justify-center items-center sm:justify-start flex font-bold text-white px-8 sm:px-16">
         {name}
       </h2>
 

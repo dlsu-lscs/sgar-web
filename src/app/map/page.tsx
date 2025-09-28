@@ -1,16 +1,16 @@
-import LSCSTitle from "@/features/lscs/components/lscs_title";
+import MapTitle from "@/features/map/components/map-title";
 import Navbar from "@/features/home/components/navbar";
-import AboutLSCS from "@/features/lscs/components/lscs";
+import Map from "@/features/map/components/map";
 import Footer from "@/features/home/components/footer";
 
-export default function LSCS() {
+export default function MapPage() {
   return (
     <>
       <Navbar />
       <div className="relative flex flex-col">
         <div className="h-20 w-full" />
-        <LSCSTitle />
-        <AboutLSCS />
+        <MapTitle />
+        <Map />
         <Footer />
       </div>
     </>

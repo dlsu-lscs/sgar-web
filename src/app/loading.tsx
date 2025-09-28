@@ -21,7 +21,7 @@ export default function Loading() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen w-screen bg-[var(--card-tertiary-foreground)] text-white">
+    <div className="flex flex-col items-center justify-center h-screen w-full bg-[var(--card-tertiary-foreground)] text-white">
       <Image
         src="/assets/sgar_logo2.webp"
         alt="SGAR Logo 2"
