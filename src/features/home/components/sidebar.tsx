@@ -35,12 +35,12 @@ export default function Sidebar() {
             </Link>
           </ul>
           <ul>
-            <Link href="/" className="text-foreground">
+            <Link href="/map" className="text-foreground">
               Map
             </Link>
           </ul>
           <ul>
-            <Link href="/" className="text-foreground">
+            <Link href="/faqs" className="text-foreground">
               FAQs
             </Link>{" "}
           </ul>

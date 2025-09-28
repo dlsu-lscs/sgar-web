@@ -30,7 +30,7 @@ export default function Navbar() {
             </ul>
             <ul>
               <Button variant="link" className="text-foreground">
-                FAQs
+                <Link href="/faqs">FAQs</Link>
               </Button>
             </ul>
             <ul>
