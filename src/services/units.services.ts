@@ -58,7 +58,7 @@ export async function getUnitById(id: number, revalidate = 60) {
   }
 }
 
-export async function getImageAsDataUrl(src: string, revalidate = 300) {
+export async function getImageAsDataUrl(src: string, revalidate = 60 * 60 * 24) {
  
 
   try {
@@ -67,14 +67,15 @@ export async function getImageAsDataUrl(src: string, revalidate = 300) {
     await fetchBuffer(`${API_URL}${src}`, revalidate);
 
     const normalizedSrc = src.replace(/^\//, "");
-    const filename = path.basename(normalizedSrc);
+    const filename = decodeURIComponent(path.basename(normalizedSrc));
+
 
     const command = new GetObjectCommand({
       Bucket: "sgar-2025",
-      Key: normalizedSrc,
+      Key: filename,
     });
 
-  const signedUrl = await getSignedUrl(s3, command, { expiresIn: 60 });
+  const signedUrl = await getSignedUrl(s3, command, { expiresIn: 600 });
 
     return signedUrl;
   } catch (error) {
