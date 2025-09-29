@@ -14,7 +14,6 @@ const nextConfig = {
         protocol: "https",
         hostname: new URL(CDN_URL).hostname,
       },
-      
     ],
   },
 };

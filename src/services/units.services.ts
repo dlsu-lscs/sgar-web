@@ -6,6 +6,7 @@ import path from "path";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL!;
 const API_KEY = process.env.API_KEY!;
+const CDN_URL = process.env.CDN_URL!;
 
 const defaultHeaders: HeadersInit = {
   Authorization: `users API-Key ${API_KEY}`,
