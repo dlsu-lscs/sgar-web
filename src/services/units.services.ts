@@ -7,11 +7,11 @@ const defaultHeaders = {
   Authorization: `users API-Key ${API_KEY}`,
 };
 
-async function fetchJSON<T>(url: string): Promise<T> {
+async function fetchJSON<T>(url: string, revalidate = 60): Promise<T> {
   const res = await fetch(url, {
     method: "GET",
     headers: defaultHeaders,
-    cache: "no-store",
+    next: { revalidate },
   });
 
   if (!res.ok) {
@@ -21,10 +21,11 @@ async function fetchJSON<T>(url: string): Promise<T> {
   return res.json();
 }
 
-export async function getUnitById(id: number) {
+export async function getUnitById(id: number, revalidate = 60) {
   try {
     return await fetchJSON(
       `${API_URL}/api/sgar-units/${id}?depth=2&draft=false&trash=false`,
+      revalidate,
     );
   } catch (error) {
     console.error("Error in getUnitById query:", error);
@@ -32,12 +33,12 @@ export async function getUnitById(id: number) {
   }
 }
 
-export async function getImageAsDataUrl(src: string) {
+export async function getImageAsDataUrl(src: string, revalidate = 300) {
   try {
     const res = await fetch(`${API_URL}${src}`, {
       method: "GET",
       headers: defaultHeaders,
-      cache: "no-store",
+      next: { revalidate },
     });
 
     if (!res.ok) {
@@ -55,10 +56,11 @@ export async function getImageAsDataUrl(src: string) {
   }
 }
 
-export async function getUnitBySlug(slug: string) {
+export async function getUnitBySlug(slug: string, revalidate = 60) {
   try {
     const data = await fetchJSON<{ docs: UnitType[] }>(
       `${API_URL}/api/sgar-units?where[slug][equals]=${slug}`,
+      revalidate,
     );
 
     if (data?.docs?.length > 0) {
@@ -72,10 +74,11 @@ export async function getUnitBySlug(slug: string) {
   }
 }
 
-export async function getAllUnits() {
+export async function getAllUnits(revalidate = 60) {
   try {
     const data = await fetchJSON<{ docs: UnitType[] }>(
       `${API_URL}/api/sgar-units?limit=0`,
+      revalidate,
     );
 
     if (data?.docs?.length > 0) {
@@ -94,14 +97,17 @@ export type UnitWithImages = UnitType & {
   logoUrl?: string;
 };
 
-export async function getUnitsWithImages(): Promise<UnitWithImages[]> {
-  const docs: UnitType[] = await getAllUnits();
+export async function getUnitsWithImages(
+  unitRevalidate = 60,
+  imageRevalidate = 300,
+): Promise<UnitWithImages[]> {
+  const docs: UnitType[] = await getAllUnits(unitRevalidate);
 
   return Promise.all(
     docs.map(async (unit) => {
       const [mainPub, logo] = await Promise.all([
-        getImageAsDataUrl(unit["main-pub"]?.url ?? "/none"),
-        getImageAsDataUrl(unit.logo?.url ?? "/none"),
+        getImageAsDataUrl(unit["main-pub"]?.url ?? "/none", imageRevalidate),
+        getImageAsDataUrl(unit.logo?.url ?? "/none", imageRevalidate),
       ]);
 
       return {

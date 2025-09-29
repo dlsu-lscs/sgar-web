@@ -30,6 +30,8 @@ export default function ExecBoard({ members = [] }: Props) {
                     fill
                     alt={member.photo?.alt || member["full-name"]}
                     className="object-cover rounded-md"
+                    loading="lazy"
+                    priority={false}
                   />
                   <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out rounded-md" />
                 </div>

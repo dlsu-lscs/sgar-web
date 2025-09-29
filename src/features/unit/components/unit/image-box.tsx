@@ -11,7 +11,14 @@ export default function ImageBox({ src, alt }: Props) {
   return (
     <div className="relative w-full h-full transition-colors">
       {src ? (
-        <Image src={src} fill alt={alt} className="object-cover" />
+        <Image
+          src={src}
+          fill
+          alt={alt}
+          loading="lazy"
+          priority={false}
+          className="object-cover"
+        />
       ) : (
         <div className="w-full h-full bg-gray-200" />
       )}

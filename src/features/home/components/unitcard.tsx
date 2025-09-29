@@ -28,6 +28,8 @@ export default function UnitCard({
           src={pub_url}
           alt={pub_alt}
           fill
+          loading="lazy"
+          priority={false}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
 
@@ -41,6 +43,8 @@ export default function UnitCard({
             alt={logo_alt}
             width={60}
             height={60}
+            loading="lazy"
+            priority={false}
             className="object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           />
           <h3 className="text-md font-bold font-sans text-right text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
