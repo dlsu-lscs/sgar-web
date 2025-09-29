@@ -1,5 +1,17 @@
 export const revalidate = 60;
 
+import { getAllUnits } from "@/services/units.services";
+
+export async function generateStaticParams() {
+  try {
+    const units = await getAllUnits();
+    return units.filter((u) => u.slug).map((u) => ({ slug: u.slug as string }));
+  } catch (error) {
+    console.error("generateStaticParams error:", error);
+    return [];
+  }
+}
+
 import Navbar from "@/features/home/components/navbar";
 import UnitContainer from "@/features/unit/containers/unit-container";
 import Footer from "@/features/home/components/footer";

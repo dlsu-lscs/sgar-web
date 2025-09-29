@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 const fontSans = Poppins({
@@ -40,16 +41,20 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/assets/sgar_logo2.webp", type: "image/webp" }],
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
+      <head></head>
       <body
         className={`min-h-screen bg-center bg-contain bg-repeat bg-[url('/assets/bg.webp')] ${fontSans.className} ${fontSans.variable} antialiased relative`}
       >
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
+
         {children}
       </body>
     </html>
