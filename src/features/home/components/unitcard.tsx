@@ -28,6 +28,8 @@ export default function UnitCard({
           src={pub_url}
           alt={pub_alt}
           fill
+          loading="lazy"
+          priority={false}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
 
