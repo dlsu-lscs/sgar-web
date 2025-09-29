@@ -44,6 +44,7 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          CDN_URL: ${{ secrets.CDN_URL }}
 
       - name: CodeQL Analysis
         uses: github/codeql-action/init@v3
