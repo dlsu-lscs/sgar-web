@@ -2,6 +2,7 @@ import { UnitType } from "@/types/units.types";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL!;
 const API_KEY = process.env.API_KEY!;
+const CDN_URL = process.env.CDN_URL!;
 
 const defaultHeaders: HeadersInit = {
   Authorization: `users API-Key ${API_KEY}`,
@@ -55,12 +56,12 @@ export async function getUnitById(id: number, revalidate = 60) {
 
 export async function getImageAsDataUrl(src: string, revalidate = 300) {
   try {
-    const { buffer, contentType } = await fetchBuffer(
-      `${API_URL}${src}`,
-      revalidate,
-    );
+    if (!src) return null;
 
-    return `data:${contentType};base64,${buffer.toString("base64")}`;
+    await fetchBuffer(`${API_URL}${src}`, revalidate);
+
+    const normalizedSrc = src.replace(/^\//, "");
+    return `${CDN_URL}/${normalizedSrc}`;
   } catch (error) {
     console.error("Error in getImageAsDataUrl query:", error);
     return null;
@@ -117,8 +118,8 @@ export async function getUnitsWithImages(
   return Promise.all(
     docs.map(async (unit) => {
       const [mainPub, logo] = await Promise.all([
-        getImageAsDataUrl(unit["main-pub"]?.url ?? "/none", imageRevalidate),
-        getImageAsDataUrl(unit.logo?.url ?? "/none", imageRevalidate),
+        getImageAsDataUrl(unit["main-pub"]?.url ?? "", imageRevalidate),
+        getImageAsDataUrl(unit.logo?.url ?? "", imageRevalidate),
       ]);
 
       return {
