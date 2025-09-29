@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import HydrationLoader from "@/components/hydration-loader";
 import "./globals.css";
 
 const fontSans = Poppins({
@@ -51,7 +50,7 @@ export default async function RootLayout({
       <body
         className={`min-h-screen bg-center bg-contain bg-repeat bg-[url('/assets/bg.webp')] ${fontSans.className} ${fontSans.variable} antialiased relative`}
       >
-        <HydrationLoader>{children}</HydrationLoader>
+        {children}
       </body>
     </html>
   );
