@@ -1,9 +1,13 @@
+import { s3 } from "@/lib/s3";
 import { UnitType } from "@/types/units.types";
+import { GetObjectCommand } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import path from "path";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL!;
 const API_KEY = process.env.API_KEY!;
 
-const defaultHeaders = {
+const defaultHeaders: HeadersInit = {
   Authorization: `users API-Key ${API_KEY}`,
 };
 
@@ -21,6 +25,26 @@ async function fetchJSON<T>(url: string, revalidate = 60): Promise<T> {
   return res.json();
 }
 
+async function fetchBuffer(
+  url: string,
+  revalidate = 300,
+): Promise<{ buffer: Buffer; contentType: string }> {
+  const res = await fetch(url, {
+    method: "GET",
+    headers: defaultHeaders,
+    next: { revalidate },
+  });
+
+  if (!res.ok) {
+    throw new Error(`Fetch error: ${res.status} ${res.statusText}`);
+  }
+
+  const contentType =
+    res.headers.get("content-type") ?? "application/octet-stream";
+  const buffer = Buffer.from(await res.arrayBuffer());
+  return { buffer, contentType };
+}
+
 export async function getUnitById(id: number, revalidate = 60) {
   try {
     return await fetchJSON(
@@ -33,23 +57,22 @@ export async function getUnitById(id: number, revalidate = 60) {
   }
 }
 
-export async function getImageAsDataUrl(src: string, revalidate = 300) {
+export async function getImageAsDataUrl(src: string) {
   try {
-    const res = await fetch(`${API_URL}${src}`, {
-      method: "GET",
-      headers: defaultHeaders,
-      next: { revalidate },
+    if (!src) return null;
+
+    const normalizedSrc = src.replace(/^\//, "");
+    const filename = decodeURIComponent(path.basename(normalizedSrc));
+
+
+    const command = new GetObjectCommand({
+      Bucket: "sgar-2025",
+      Key: filename,
     });
 
-    if (!res.ok) {
-      throw new Error(`Image fetch failed: ${res.status}`);
-    }
+  const signedUrl = await getSignedUrl(s3, command, { expiresIn: 60 * 60 * 24 });
 
-    const contentType =
-      res.headers.get("content-type") ?? "application/octet-stream";
-    const buffer = Buffer.from(await res.arrayBuffer());
-
-    return `data:${contentType};base64,${buffer.toString("base64")}`;
+    return signedUrl;
   } catch (error) {
     console.error("Error in getImageAsDataUrl query:", error);
     return null;
@@ -99,21 +122,20 @@ export type UnitWithImages = UnitType & {
 
 export async function getUnitsWithImages(
   unitRevalidate = 60,
-  imageRevalidate = 300,
 ): Promise<UnitWithImages[]> {
   const docs: UnitType[] = await getAllUnits(unitRevalidate);
 
   return Promise.all(
     docs.map(async (unit) => {
       const [mainPub, logo] = await Promise.all([
-        getImageAsDataUrl(unit["main-pub"]?.url ?? "/none", imageRevalidate),
-        getImageAsDataUrl(unit.logo?.url ?? "/none", imageRevalidate),
+        getImageAsDataUrl(unit["main-pub"]?.url ?? "", ),
+        getImageAsDataUrl(unit.logo?.url ?? "", ),
       ]);
 
       return {
         ...unit,
-        mainPubUrl: mainPub!,
-        logoUrl: logo!,
+        mainPubUrl: mainPub ?? undefined,
+        logoUrl: logo ?? undefined,
       };
     }),
   );
