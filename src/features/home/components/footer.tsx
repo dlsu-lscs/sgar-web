@@ -8,6 +8,8 @@ export default function Footer() {
         alt={"SGAR Logo 2"}
         width={100}
         height={100}
+        loading="lazy"
+        priority={false}
         className="object-contain"
       />
       <p className="text lg text-[var(--card-foreground)]">

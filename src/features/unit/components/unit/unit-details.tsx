@@ -53,6 +53,8 @@ export default function UnitDesc({
                 alt={orgchart_pub.alt}
                 width={1100}
                 height={700}
+                loading="lazy"
+                priority={false}
                 className="rounded-md object-contain w-full h-auto sm:max-w-4xl"
                 sizes="(max-width: 640px) 100vw, 80vw"
               />
@@ -82,6 +84,8 @@ export default function UnitDesc({
                 alt={main_pub.alt}
                 width={500}
                 height={500}
+                loading="lazy"
+                priority={false}
                 className="rounded-md object-contain"
               />
             </DialogContent>
@@ -95,6 +99,8 @@ export default function UnitDesc({
             src="/assets/sgar_logo2.webp"
             alt="SGAR logo"
             width={70}
+            loading="lazy"
+            priority={false}
             height={70}
           />
           <div className="flex flex-col text-xs ml-4">
@@ -110,6 +116,8 @@ export default function UnitDesc({
               alt={logo.alt}
               width={200}
               height={200}
+              loading="lazy"
+              priority={false}
               className="object-contain"
             />
             UNIT LOGO
