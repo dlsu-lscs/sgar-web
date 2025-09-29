@@ -1,4 +1,8 @@
+import { s3 } from "@/lib/s3";
 import { UnitType } from "@/types/units.types";
+import { GetObjectCommand } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import path from "path";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL!;
 const API_KEY = process.env.API_KEY!;
@@ -55,13 +59,24 @@ export async function getUnitById(id: number, revalidate = 60) {
 }
 
 export async function getImageAsDataUrl(src: string, revalidate = 300) {
+ 
+
   try {
     if (!src) return null;
 
     await fetchBuffer(`${API_URL}${src}`, revalidate);
 
     const normalizedSrc = src.replace(/^\//, "");
-    return `${CDN_URL}/${normalizedSrc}`;
+    const filename = path.basename(normalizedSrc);
+
+    const command = new GetObjectCommand({
+      Bucket: "sgar-2025",
+      Key: normalizedSrc,
+    });
+
+  const signedUrl = await getSignedUrl(s3, command, { expiresIn: 60 });
+
+    return signedUrl;
   } catch (error) {
     console.error("Error in getImageAsDataUrl query:", error);
     return null;
