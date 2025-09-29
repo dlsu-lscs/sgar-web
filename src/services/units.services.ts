@@ -3,7 +3,7 @@ import { UnitType } from "@/types/units.types";
 const API_URL = process.env.NEXT_PUBLIC_API_URL!;
 const API_KEY = process.env.API_KEY!;
 
-const defaultHeaders = {
+const defaultHeaders: HeadersInit = {
   Authorization: `users API-Key ${API_KEY}`,
 };
 
@@ -21,6 +21,26 @@ async function fetchJSON<T>(url: string, revalidate = 60): Promise<T> {
   return res.json();
 }
 
+async function fetchBuffer(
+  url: string,
+  revalidate = 300,
+): Promise<{ buffer: Buffer; contentType: string }> {
+  const res = await fetch(url, {
+    method: "GET",
+    headers: defaultHeaders,
+    next: { revalidate },
+  });
+
+  if (!res.ok) {
+    throw new Error(`Fetch error: ${res.status} ${res.statusText}`);
+  }
+
+  const contentType =
+    res.headers.get("content-type") ?? "application/octet-stream";
+  const buffer = Buffer.from(await res.arrayBuffer());
+  return { buffer, contentType };
+}
+
 export async function getUnitById(id: number, revalidate = 60) {
   try {
     return await fetchJSON(
@@ -35,19 +55,10 @@ export async function getUnitById(id: number, revalidate = 60) {
 
 export async function getImageAsDataUrl(src: string, revalidate = 300) {
   try {
-    const res = await fetch(`${API_URL}${src}`, {
-      method: "GET",
-      headers: defaultHeaders,
-      next: { revalidate },
-    });
-
-    if (!res.ok) {
-      throw new Error(`Image fetch failed: ${res.status}`);
-    }
-
-    const contentType =
-      res.headers.get("content-type") ?? "application/octet-stream";
-    const buffer = Buffer.from(await res.arrayBuffer());
+    const { buffer, contentType } = await fetchBuffer(
+      `${API_URL}${src}`,
+      revalidate,
+    );
 
     return `data:${contentType};base64,${buffer.toString("base64")}`;
   } catch (error) {
@@ -112,8 +123,8 @@ export async function getUnitsWithImages(
 
       return {
         ...unit,
-        mainPubUrl: mainPub!,
-        logoUrl: logo!,
+        mainPubUrl: mainPub ?? undefined,
+        logoUrl: logo ?? undefined,
       };
     }),
   );
