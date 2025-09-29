@@ -47,6 +47,7 @@ export default function ExecBoard({ members = [] }: Props) {
                   alt={member.photo?.alt || member["full-name"]}
                   className="object-cover rounded-md"
                   priority={false}
+                  loading="lazy"
                 />
               </DialogContent>
             </Dialog>

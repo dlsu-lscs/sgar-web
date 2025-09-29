@@ -57,13 +57,9 @@ export async function getUnitById(id: number, revalidate = 60) {
   }
 }
 
-export async function getImageAsDataUrl(src: string, revalidate = 60 * 60 * 24) {
- 
-
+export async function getImageAsDataUrl(src: string) {
   try {
     if (!src) return null;
-
-    await fetchBuffer(`${API_URL}${src}`, revalidate);
 
     const normalizedSrc = src.replace(/^\//, "");
     const filename = decodeURIComponent(path.basename(normalizedSrc));
@@ -74,7 +70,7 @@ export async function getImageAsDataUrl(src: string, revalidate = 60 * 60 * 24) 
       Key: filename,
     });
 
-  const signedUrl = await getSignedUrl(s3, command, { expiresIn: 600 });
+  const signedUrl = await getSignedUrl(s3, command, { expiresIn: 60 * 60 * 24 });
 
     return signedUrl;
   } catch (error) {
@@ -126,15 +122,14 @@ export type UnitWithImages = UnitType & {
 
 export async function getUnitsWithImages(
   unitRevalidate = 60,
-  imageRevalidate = 300,
 ): Promise<UnitWithImages[]> {
   const docs: UnitType[] = await getAllUnits(unitRevalidate);
 
   return Promise.all(
     docs.map(async (unit) => {
       const [mainPub, logo] = await Promise.all([
-        getImageAsDataUrl(unit["main-pub"]?.url ?? "", imageRevalidate),
-        getImageAsDataUrl(unit.logo?.url ?? "", imageRevalidate),
+        getImageAsDataUrl(unit["main-pub"]?.url ?? "", ),
+        getImageAsDataUrl(unit.logo?.url ?? "", ),
       ]);
 
       return {
