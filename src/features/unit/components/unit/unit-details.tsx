@@ -116,7 +116,7 @@ export default function UnitDesc({
           </div>
           <div className="w-full h-20 border-2 border-white rounded-md items-center text-left p-5 mb-5 block sm:hidden">
             <p className="font-bold text-sm">APPLICATIONS OPEN UNTIL</p>
-            <p className="text-sm">OCT 29, 2025</p>
+            <p className="text-sm">OCT 4, 2025</p>
           </div>
           <div className="w-full h-40 border-2 border-white rounded-md items-center text-left mb-5 justify-center flex flex-col gap-3">
             <p className="font-bold">APPLICATION FORM</p>
