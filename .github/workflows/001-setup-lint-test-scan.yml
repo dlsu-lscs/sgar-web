@@ -8,8 +8,8 @@ on:
     branches: [main, dev, staging]
   release:
     types: [published]
-  schedule:
-    - cron: "0 2 * * 1" # Weekly dependency check
+    # schedule:
+    #   - cron: "0 2 * * 1" # Weekly dependency check
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
