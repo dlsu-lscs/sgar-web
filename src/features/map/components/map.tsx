@@ -20,8 +20,8 @@ export default function Map() {
             <Image
               src="/assets/SGAR_Map.webp"
               alt="Booth Map"
-              width={800}
-              height={600}
+              width={1000}
+              height={800}
               className="rounded-md object-contain"
             />
           </div>
@@ -35,17 +35,16 @@ export default function Map() {
           <Image
             src="/assets/SGAR_Map.webp"
             alt="Booth Map Enlarged"
-            width={1200}
-            height={800}
+            width={1400}
+            height={1000}
             className="rounded-md object-contain w-full h-auto sm:max-w-5xl"
-            sizes="(max-width: 640px) 100vw, 80vw"
           />
         </DialogContent>
       </Dialog>
 
       <div className="w-full sm:max-w-5xl max-w-lg sm:px-0 px-5 text-center mt-10">
         <p className="text-base leading-relaxed">
-          This is the booth map for SGAR, found in CADS.
+          This is the booth map for SGAR.
         </p>
       </div>
     </div>
