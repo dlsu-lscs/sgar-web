@@ -38,13 +38,14 @@ export default function FAQs() {
 
         <AccordionItem value="item-3">
           <AccordionTrigger className="text-lg sm:text-xl font-semibold">
-            Do I need previous experience in leadership roles?
+            Do I need prior experience or specific skills to apply?
           </AccordionTrigger>
           <AccordionContent className="text-base leading-relaxed">
-            No, previous experience is not required, and the application is open
-            to all interested students. This will be your chance to further
-            nurture your skills in leadership, competency, and preferred
-            specializations.
+            Requirements vary depending on the unit or committee. Some roles may
+            require specific tools or materials, while others are open to
+            applicants with no prior experience. Applicants are encouraged to
+            review the specific qualifications and requirements listed for each
+            unit or committee before applying.
           </AccordionContent>
         </AccordionItem>
 
@@ -61,13 +62,14 @@ export default function FAQs() {
 
         <AccordionItem value="item-5">
           <AccordionTrigger className="text-lg sm:text-xl font-semibold">
-            When will the results be released?
+            Who can join the University Student Government (USG)?
           </AccordionTrigger>
           <AccordionContent className="text-base leading-relaxed">
-            Results of your application will be released on{" "}
-            <strong>October 20, 2025</strong> through the social media pages of
-            DLSU USG: <span className="font-medium">DLSU USG on Facebook</span>{" "}
-            and <span className="font-medium">@usg_dlsu on Instagram</span>.
+            All currently enrolled students are welcome to apply, as long as
+            they do not exceed the maximum of two (2) USG positions, do not hold
+            conflicting roles across the Legislative, Executive, and Independent
+            branches, and are not members of any Student Media Organization
+            (SMO).
           </AccordionContent>
         </AccordionItem>
       </Accordion>

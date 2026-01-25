@@ -49,7 +49,13 @@ export const metadata: Metadata = {
     site: "@dlsu_sgar",
     creator: "@dlsu_usg",
   },
-  icons: [{ rel: "icon", url: "/assets/sgar_logo2.webp", type: "image/webp" }],
+  icons: [
+    {
+      rel: "icon",
+      url: "../../public/assets/sgar2_logo",
+      type: "image/webp",
+    },
+  ],
 };
 
 export default function RootLayout({
