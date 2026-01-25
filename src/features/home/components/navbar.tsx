@@ -10,9 +10,9 @@ export default function Navbar() {
         <div className="flex justify-between items-center w-full">
           <Link href="/" className="cursor-pointer">
             <Image
-              src="/assets/sgar_logo.webp"
+              src="/assets/sgar2_logo.webp"
               alt="SGAR logo"
-              width={168}
+              width={100}
               height={55}
               className="object-contain"
             />

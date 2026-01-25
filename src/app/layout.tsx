@@ -1,12 +1,23 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const fontSans = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
+});
+
+const star7 = localFont({
+  src: "../../public/fonts/STAR7.ttf",
+  variable: "--font-star7",
+});
+
+const fontGordita = localFont({
+  src: "../../public/fonts/Gordita-Regular.otf",
+  variable: "--font-gordita-reg",
 });
 
 export const metadata: Metadata = {
@@ -50,7 +61,7 @@ export default function RootLayout({
     <html lang="en">
       <head />
       <body
-        className={`min-h-screen bg-center bg-contain bg-repeat bg-[url('/assets/bg.webp')] ${fontSans.className} ${fontSans.variable} antialiased relative`}
+        className={`min-h-screen bg-center bg-contain bg-repeat bg-[linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.4)),url('/assets/bg2.webp')] ${fontGordita.className} ${fontGordita.variable} antialiased relative`}
       >
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
 
