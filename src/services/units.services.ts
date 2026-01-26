@@ -1,4 +1,8 @@
+import { s3 } from "@/lib/s3";
 import { UnitType } from "@/types/units.types";
+import { GetObjectCommand } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import path from "path";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL!;
 const API_KEY = process.env.API_KEY!;
@@ -54,7 +58,7 @@ export async function getUnitById(id: number, revalidate = 60) {
   }
 }
 
-export async function getImageAsDataUrl(src: string, revalidate = 300) {
+export async function getImageAsDataUrl(src: string) {
   try {
     if (!src) return null;
     const isAbsolute = src.startsWith("http");
@@ -118,15 +122,14 @@ export type UnitWithImages = UnitType & {
 
 export async function getUnitsWithImages(
   unitRevalidate = 60,
-  imageRevalidate = 300,
 ): Promise<UnitWithImages[]> {
   const docs: UnitType[] = await getAllUnits(unitRevalidate);
 
   return Promise.all(
     docs.map(async (unit) => {
       const [mainPub, logo] = await Promise.all([
-        getImageAsDataUrl(unit["main-pub"]?.url ?? "", imageRevalidate),
-        getImageAsDataUrl(unit.logo?.url ?? "", imageRevalidate),
+        getImageAsDataUrl(unit["main-pub"]?.url ?? "", ),
+        getImageAsDataUrl(unit.logo?.url ?? "", ),
       ]);
 
       return {
