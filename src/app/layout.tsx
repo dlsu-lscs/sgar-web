@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   icons: [
     {
       rel: "icon",
-      url: "../../public/assets/sgar2_logo",
+      url: "/assets/sgar2_logo2",
       type: "image/webp",
     },
   ],

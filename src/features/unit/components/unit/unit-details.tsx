@@ -28,11 +28,12 @@ export default function UnitDesc({
     unit["form-link"] && unit["form-link"] !== "no link";
 
   // Determine deadline based on cluster name
-  const deadline =
-    unit.cluster["cluster-name"] === "Departments and Executive Board"
-      ? "OCT 11, 2025"
-      : "OCT 4, 2025";
-
+  const deadline = "February 7, 2026";
+  /*
+  unit.cluster["cluster-name"] === "Departments and Executive Board"
+    ? "OCT 11, 2025"
+    : "OCT 4, 2025";
+*/
   return (
     <div className="flex sm:flex-row relative flex-col gap-5 align-center items-center justify-center w-full">
       {/* Left Column */}
@@ -110,7 +111,7 @@ export default function UnitDesc({
         {/* Cluster Info */}
         <div className="w-full h-20 border-2 border-white rounded-md items-center text-left p-2 mb-5 flex flex-row">
           <Image
-            src="/assets/sgar_logo2.webp"
+            src="/assets/sgar2_logo2.webp"
             alt="SGAR logo"
             width={70}
             height={70}

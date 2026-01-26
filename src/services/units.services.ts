@@ -61,19 +61,18 @@ export async function getUnitById(id: number, revalidate = 60) {
 export async function getImageAsDataUrl(src: string) {
   try {
     if (!src) return null;
+    const isAbsolute = src.startsWith("http");
+    const fullUrl = isAbsolute
+      ? src
+      : `${API_URL}${src.startsWith("/") ? "" : "/"}${src}`;
 
-    const normalizedSrc = src.replace(/^\//, "");
-    const filename = decodeURIComponent(path.basename(normalizedSrc));
+    await fetchBuffer(fullUrl, revalidate);
 
+    const urlPath = isAbsolute
+      ? new URL(src).pathname.replace(/^\//, "")
+      : src.replace(/^\//, "");
 
-    const command = new GetObjectCommand({
-      Bucket: "sgar-2025",
-      Key: filename,
-    });
-
-  const signedUrl = await getSignedUrl(s3, command, { expiresIn: 60 * 60 * 24 });
-
-    return signedUrl;
+    return `${CDN_URL}/${urlPath}`;
   } catch (error) {
     console.error("Error in getImageAsDataUrl query:", error);
     return null;

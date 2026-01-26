@@ -13,8 +13,9 @@ export default async function DeptContainer() {
     },
     {},
   );
+  console.log(clusters);
 
-  const deptEbUnitsRaw = clusters["Departments and Executive Board"] ?? [];
+  const deptEbUnitsRaw = clusters["Under Executive Board Departments"] ?? [];
   const lcsg = deptEbUnitsRaw.find((u) => u.slug?.toLowerCase() === "lcsg");
   const osec = deptEbUnitsRaw.find((u) => u.slug?.toLowerCase() === "osec");
   const others = deptEbUnitsRaw.filter(
@@ -24,12 +25,14 @@ export default async function DeptContainer() {
     Boolean,
   ) as UnitWithImages[];
 
+  console.log(deptEbUnits);
+
   const delays = [3000, 5000, 7000];
 
   return (
     <div className="relative flex flex-col">
       <DeptTop
-        name="DEPARTMENTS AND EXECUTIVE BOARD"
+        name="UNDER EXECUTIVE BOARD DEPARTMENTS"
         delay={3000}
         units={deptEbUnits}
       />
