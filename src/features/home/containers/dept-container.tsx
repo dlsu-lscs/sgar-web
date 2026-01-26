@@ -46,7 +46,7 @@ export default async function DeptContainer() {
       {Object.entries(clusters)
         .filter(
           ([clusterName]) =>
-            clusterName.toLowerCase() !== "departments and executive board" &&
+            clusterName.toLowerCase() !== "under executive board departments" &&
             clusterName.toLowerCase() !== "independent bodies",
         )
         .map(([clusterName, units], idx) => (
