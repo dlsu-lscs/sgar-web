@@ -62,7 +62,7 @@ export async function getImageAsDataUrl(src: string, revalidate = 300) {
       ? src
       : `${API_URL}${src.startsWith("/") ? "" : "/"}${src}`;
 
-    await fetchBuffer(fullUrl, revalidate);
+    await fetchBuffer(fullUrl, 300);
 
     const urlPath = isAbsolute
       ? new URL(src).pathname.replace(/^\//, "")

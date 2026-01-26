@@ -6,9 +6,9 @@ export default function AboutSGAR() {
           Student Government Annual Recruitment (SGAR) gives students the
           opportunity to join USG. This recruitment week will follow a hybrid
           format. Application forms will be available online, and booths will be
-          set up along CADS from September 29, 2025, to October 4, 2025,
-          offering students the chance to learn more about SGAR and engage with
-          USG representatives.{" "}
+          set up along St. Joseph Covered Walk from January 26, 2026, to January
+          31, 2026, offering students the chance to learn more about SGAR and
+          engage with USG representatives.
         </p>
       </div>
       <div className="w-full sm:max-w-5xl max-w-lg sm:px-0 px-5 text-center">
