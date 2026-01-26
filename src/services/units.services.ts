@@ -57,11 +57,18 @@ export async function getUnitById(id: number, revalidate = 60) {
 export async function getImageAsDataUrl(src: string, revalidate = 300) {
   try {
     if (!src) return null;
+    const isAbsolute = src.startsWith("http");
+    const fullUrl = isAbsolute
+      ? src
+      : `${API_URL}${src.startsWith("/") ? "" : "/"}${src}`;
 
-    await fetchBuffer(`${API_URL}${src}`, revalidate);
+    await fetchBuffer(fullUrl, revalidate);
 
-    const normalizedSrc = src.replace(/^\//, "");
-    return `${CDN_URL}/${normalizedSrc}`;
+    const urlPath = isAbsolute
+      ? new URL(src).pathname.replace(/^\//, "")
+      : src.replace(/^\//, "");
+
+    return `${CDN_URL}/${urlPath}`;
   } catch (error) {
     console.error("Error in getImageAsDataUrl query:", error);
     return null;
